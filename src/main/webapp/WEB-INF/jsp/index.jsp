@@ -8,11 +8,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-    <title><s:message code="menu.mainPage"/></title>
+    <title>HOME</title>
 </head>
 <body>
+<h1>Hello World<h1>
 
-<%@include file="/src/main/webapp/WEB-INF/incl/menu.app" %>
-<h3 align="center"><c:out value="${message }" /></h3>
+
 </body>
 </html>
