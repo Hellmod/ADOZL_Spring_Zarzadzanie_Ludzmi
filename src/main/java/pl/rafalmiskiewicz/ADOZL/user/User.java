@@ -15,49 +15,44 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
-@Entity // wie że to encja
-@Table(name = "user") // wie z której tablli
+@Entity
+@Table(name = "user")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // informacja że id ma być generowane automatycznie
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int id;
-	
+
 	@Column(name = "email")
 	@NotNull
 	private String email;
-	
+
 	@Column(name = "password")
 	@NotNull
 	private String password;
-	
+
 	@Column(name = "name")
 	@NotNull
 	private String name;
-	
+
 	@Column(name = "last_name")
 	@NotNull
 	private String lastName;
-	
+
 	@Column(name = "active")
 	@NotNull
-	private int active; //czy user może logować się do bazy
-	
-	@ManyToMany(cascade = CascadeType.ALL) // wiele do wielu
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles; //
+	private int active;
 
-	@Transient // pomocnicza przy insert update operacja
-	private int nrRoli;
-	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
+
 	@Transient
-	private String newPassword;
-	
-	@Column(name = "activation_code")
-	private String activationCode;
-	
-	
+	private String operacja;
+
+
 	//gettery i settery
 	public int getId() {
 		return id;
@@ -101,22 +96,11 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	public int getNrRoli() {
-		return nrRoli;
+	public String getOperacja() {
+		return operacja;
 	}
-	public void setNrRoli(int nrRoli) {
-		this.nrRoli = nrRoli;
+	public void setOperacja(String operacja) {
+		this.operacja = operacja;
 	}
-	public String getNewPassword() {
-		return newPassword;
-	}
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
-	public String getActivationCode() {
-		return activationCode;
-	}
-	public void setActivationCode(String activationCode) {
-		this.activationCode = activationCode;
-	}
+
 }
