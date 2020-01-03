@@ -1,19 +1,8 @@
 package pl.rafalmiskiewicz.ADOZL.user;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -54,6 +43,9 @@ public class User {
 
 	@Transient
 	private int nrRoli;
+
+	@Transient
+	private String newPassword;
 
 
 	//gettery i settery
@@ -96,14 +88,12 @@ public class User {
 	public Set<Role> getRoles() {
 		return roles;
 	}
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
+	public void setRoles(Set<Role> roles) {	this.roles = roles;}
 	public String getOperacja() {return operacja;}
-	public void setOperacja(String operacja) {
-		this.operacja = operacja;
-	}
+	public void setOperacja(String operacja) {this.operacja = operacja;	}
 	public int getNrRoli() {return nrRoli;}
 	public void setNrRoli(int nrRoli) {	this.nrRoli = nrRoli;}
+	public String getNewPassword() { return newPassword;}
+	public void setNewPassword(String newPassword) { this.newPassword = newPassword;}
 
 }
