@@ -51,9 +51,6 @@ public class User {
 	private Set<Role> roles;
 
 	@Transient
-	private String operacja;
-
-	@Transient
 	private int nrRoli;
 
 	@Transient
@@ -101,8 +98,6 @@ public class User {
 		return roles;
 	}
 	public void setRoles(Set<Role> roles) {	this.roles = roles;}
-	public String getOperacja() {return operacja;}
-	public void setOperacja(String operacja) {this.operacja = operacja;	}
 	public int getNrRoli() {return nrRoli;}
 	public void setNrRoli(int nrRoli) {	this.nrRoli = nrRoli;}
 	public String getNewPassword() { return newPassword;}

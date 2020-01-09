@@ -3,7 +3,7 @@
 		<td align="left" width="900">
 			<a href="/"><s:message code="menu.mainPage"/></a>&nbsp;&nbsp;
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<a href="/pl.rafalmiskiewicz.ADOZL.admin"><s:message code="menu.adminPage"/></a>
+				<a href="/admin"><s:message code="menu.adminPage"/></a>
 			</sec:authorize>
 		</td>
 
