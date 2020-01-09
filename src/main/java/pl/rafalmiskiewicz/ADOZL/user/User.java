@@ -34,6 +34,18 @@ public class User {
 	@NotNull
 	private int active;
 
+	@Column(name = "telephone")
+	@NotNull
+	private int telephone;
+
+	@Column(name = "is_fired")
+	@NotNull
+	private Boolean is_fired;
+
+	@Column(name = "is_new")
+	@NotNull
+	private Boolean is_new;
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
@@ -96,4 +108,27 @@ public class User {
 	public String getNewPassword() { return newPassword;}
 	public void setNewPassword(String newPassword) { this.newPassword = newPassword;}
 
+	public int getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
+	}
+
+	public Boolean getIs_fired() {
+		return is_fired;
+	}
+
+	public void setIs_fired(Boolean is_fired) {
+		this.is_fired = is_fired;
+	}
+
+	public Boolean getIs_new() {
+		return is_new;
+	}
+
+	public void setIs_new(Boolean is_new) {
+		this.is_new = is_new;
+	}
 }

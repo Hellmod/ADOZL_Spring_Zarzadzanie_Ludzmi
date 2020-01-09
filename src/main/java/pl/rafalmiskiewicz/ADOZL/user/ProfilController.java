@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 import pl.rafalmiskiewicz.ADOZL.validators.ChangePasswordValidator;
+import pl.rafalmiskiewicz.ADOZL.validators.EditUserProfileValidator;
 
 import java.util.Locale;
 
@@ -60,6 +61,30 @@ public class ProfilController {
 			model.addAttribute("message", messageSource.getMessage("passwordChange.success", null, locale));
 		}
 
+		return returnPage;
+	}
+
+	@GET
+	@RequestMapping(value = "/editprofil")
+	public String changeUserData(Model model) {
+		String username = UserUtilities.getLoggedUser();
+		User user = userService.findUserByEmail(username);
+		model.addAttribute("user", user);
+		return "editprofil";
+	}
+
+	@POST
+	@RequestMapping(value = "/updateprofil")
+	public String changeUserDataAction(User user, BindingResult result, Model model, Locale locale) {
+		String returnPage = null;
+		new EditUserProfileValidator().validate(user, result);
+		if (result.hasErrors()) {
+			returnPage = "editprofil";
+		} else {
+			userService.updateUserProfile(user.getName(), user.getLastName(), user.getEmail(), user.getId());
+			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
+			returnPage = "afteredit";
+		}
 		return returnPage;
 	}
 

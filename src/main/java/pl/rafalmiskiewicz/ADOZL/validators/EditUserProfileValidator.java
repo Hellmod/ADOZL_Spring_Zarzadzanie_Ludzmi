@@ -1,6 +1,5 @@
 package pl.rafalmiskiewicz.ADOZL.validators;
 
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -9,8 +8,8 @@ import pl.rafalmiskiewicz.ADOZL.constants.AdozlConstants;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.utilities.AppdemoUtils;
 
-public class UserRegisterValidator implements Validator {
-
+public class EditUserProfileValidator implements Validator {
+	
 	@Override
 	public boolean supports(Class<?> cls) {
 		return User.class.equals(cls);
@@ -23,7 +22,6 @@ public class UserRegisterValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "name", "error.userName.empty");
 		ValidationUtils.rejectIfEmpty(errors, "lastName", "error.userLastName.empty");
 		ValidationUtils.rejectIfEmpty(errors, "email", "error.userEmail.empty");
-		ValidationUtils.rejectIfEmpty(errors, "password", "error.userPassword.empty");
 		
 		if (!u.getEmail().equals(null)) {
 			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.EMAIL_PATTERN, u.getEmail());
@@ -32,19 +30,6 @@ public class UserRegisterValidator implements Validator {
 			}
 		}
 		
-		if (!u.getPassword().equals(null)) {
-			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.PASSWORD_PATTERN, u.getPassword());
-			if(!isMatch) {
-				errors.rejectValue("password", "error.userPasswordIsNotMatch");
-			}
-		}
-		
 	}
 
-
-	public void validateEmailExist(User user, Errors errors) {
-		if(user != null){
-			errors.rejectValue("email","error.userEmailExist");
-		}
-	}
 }
