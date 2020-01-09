@@ -22,5 +22,14 @@ public class HourServiceImpl implements HourService {
 		return userList;
 	}
 
+	@Override
+	public List<Hour> findHourById(int id) {
+		return hourRepository.findById(id);
+	}
+
+	@Override
+	public List<Hour> findAllByUserId(int id) {
+		return hourRepository.findAllByUserId(id);
+	}
 
 }
