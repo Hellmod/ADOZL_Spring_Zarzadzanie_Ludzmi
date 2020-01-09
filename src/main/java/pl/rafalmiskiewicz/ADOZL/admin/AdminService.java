@@ -1,9 +1,6 @@
 package pl.rafalmiskiewicz.ADOZL.admin;
-
-import pl.rafalmiskiewicz.ADOZL.user.User;
-
 import java.util.List;
-
+import pl.rafalmiskiewicz.ADOZL.user.User;
 
 public interface AdminService {
 	
