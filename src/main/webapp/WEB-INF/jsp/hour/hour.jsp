@@ -27,7 +27,7 @@
 			<td width="200" align="center"><c:out value="${u.id_user }" /></td>
 			<td width="200" align="center"><c:out value="${u.hour_from }" /></td>
 			<td width="200" align="center"><c:out value="${u.hour_to }" /></td>
-			<td width="200" align="center"><input type="submit" value="<s:message code="button.edit"/>" /></td>
+			<td width="200" align="center"><a href="hour/edit/${u.id_hours }"><s:message code="button.edit"/></a></td>
 		</tr>
 	</c:forEach>
 	

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.rafalmiskiewicz.ADOZL.user.User;
 
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class HourServiceImpl implements HourService {
 	}
 
 	@Override
-	public List<Hour> findHourById(int id) {
-		return hourRepository.findById(id);
+	public Hour findHourById(int id) {
+		return (Hour) hourRepository.findById(id);
 	}
 
 	@Override

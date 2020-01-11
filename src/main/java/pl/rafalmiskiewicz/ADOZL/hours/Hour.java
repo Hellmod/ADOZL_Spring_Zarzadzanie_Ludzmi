@@ -31,7 +31,6 @@ public class Hour {
     public String getId_user() {
         return id_user;
     }
-
     public Date getHour_from() {
         return hour_from;
     }

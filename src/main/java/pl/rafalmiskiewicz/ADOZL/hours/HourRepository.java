@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository("hourRepository")
 public interface HourRepository extends JpaRepository<Hour, Integer> {
-    public List<Hour> findById(int id);
+    public Hour findById(int id);
 
     @Query(value = "SELECT * FROM hours WHERE hours.id_user=:idUser ", nativeQuery = true)
     List<Hour> findAllByUserId(@Param("idUser") int idUser);

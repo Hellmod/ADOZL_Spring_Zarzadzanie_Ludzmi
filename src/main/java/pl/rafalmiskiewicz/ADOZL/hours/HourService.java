@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface HourService {
 	
-	public List<Hour> findAll();
-	public List<Hour> findHourById(int id);
-	public List<Hour> findAllByUserId(int id);
+	List<Hour> findAll();
+	Hour findHourById(int id);
+	List<Hour> findAllByUserId(int id);
 
 }
