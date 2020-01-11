@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <title><s:message code="profil.userDane"/></title>
 </head>
 <body>
@@ -44,6 +43,33 @@
 			<c:out value="${user.lastName }"/>
 		</td>
 	</tr>
+
+	<tr>
+		<td width="130" align="right" >
+			<s:message code="register.telephone"/>
+		</td>
+		<td width="270" align="left">
+			<c:out value="${user.telephone }"/>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="130" align="right" >
+			<s:message code="register.is_fired"/>
+		</td>
+		<td width="270" align="left">
+			<c:out value="${user.is_fired }"/>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="130" align="right" >
+			<s:message code="register.is_new"/>
+		</td>
+		<td width="270" align="left">
+			<c:out value="${user.is_new }"/>
+		</td>
+	</tr>
 	
 	<tr>
 		<td width="130" align="right" >
@@ -78,21 +104,17 @@
 	</tr>
 
 </table>
-
 <table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
-
+	<td align="center">
+		<input type="button" value="<s:message code="button.edycjaProfilu"/>"
+			   onclick="window.location.href='${pageContext.request.contextPath}/editprofil'"/>
+	</td>
 	<tr>
 		<td align="center">
-			<input type="button" value="<s:message code="button.edycjaProfilu"/>" 
-					onclick="window.location.href='${pageContext.request.contextPath}/editprofil'"/>
-		</td>
-		<td align="center">
-			<input type="button" value="<s:message code="button.zmianaHasla"/>" 
-					onclick="window.location.href='${pageContext.request.contextPath}/editpassword'"/>
+			<input type="button" value="<s:message code="button.zmianaHasla"/>"
+				   onclick="window.location.href='${pageContext.request.contextPath}/editpassword'"/>
 		</td>
 	</tr>
 </table>
-
-
 </body>
 </html>

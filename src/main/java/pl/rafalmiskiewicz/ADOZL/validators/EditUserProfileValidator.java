@@ -1,12 +1,10 @@
 package pl.rafalmiskiewicz.ADOZL.validators;
 
-
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-
-import pl.rafalmiskiewicz.ADOZL.constants.AppDemoConstants;
+import pl.rafalmiskiewicz.ADOZL.constants.AdozlConstants;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.utilities.AppdemoUtils;
 
@@ -26,7 +24,7 @@ public class EditUserProfileValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "email", "error.userEmail.empty");
 		
 		if (!u.getEmail().equals(null)) {
-			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AppDemoConstants.EMAIL_PATTERN, u.getEmail());
+			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.EMAIL_PATTERN, u.getEmail());
 			if(!isMatch) {
 				errors.rejectValue("email", "error.userEmailIsNotMatch");
 			}

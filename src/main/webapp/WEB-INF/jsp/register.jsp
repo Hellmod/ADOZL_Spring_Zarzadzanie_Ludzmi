@@ -8,8 +8,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <title><s:message code="menu.register"/></title>
 </head>
 <body>
@@ -21,37 +19,45 @@
 		<c:out value="${message }" />
 </p>
 
-	<sf:form id="usersForm" action="adduser" modelAttribute="user"
-		enctype="multipart/form-data" method="POST">
+	<sf:form id="usersForm" action="adduser" modelAttribute="user" enctype="multipart/form-data" method="POST">
 
 		<table width="500" border="0" cellpadding="4" cellspacing="1"
 			align="center">
 
 			<tr>
 				<td width="130" align="right" ><s:message code="register.name"/></td>
-				<td width="270" align="left"><sf:input path="name"
-						size="28" id="name" /></td>
+				<td width="270" align="left"><sf:input path="name" size="28" id="name" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><font color="red"><sf:errors path="name"/></font></td>
+				<td colspan="2" align="center"><sf:errors path="name"/></td>
 			</tr>
 
 			<tr>
 				<td width="130" align="right"><s:message code="register.lastName"/></td>
-				<td width="270" align="left"><sf:input path="lastName"
-						size="28" /></td>
+				<td width="270" align="left"><sf:input path="lastName" size="28" /></td>
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><font color="red"><sf:errors path="lastName"/></font></td>
+				<td colspan="2" align="center"><sf:errors path="lastName"/></td>
 			</tr>
+
+
+			<tr>
+				<td width="130" align="right"><s:message code="register.telephone"/></td>
+				<td width="270" align="left"><sf:input path="telephone" size="28" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center"><sf:errors path="telephone"/></td>
+			</tr>
+
 
 			<tr>
 				<td width="130" align="right" ><s:message code="register.email"/></td>
 				<td width="270" align="left"><sf:input path="email" size="28" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><font color="red"><sf:errors path="email"/></font></td>
+				<td colspan="2" align="center"><sf:errors path="email"/></td>
 			</tr>
 
 			<tr>
@@ -59,13 +65,13 @@
 				<td width="270" align="left"><sf:password path="password" size="28" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><font color="red"><sf:errors path="password"/></font></td>
+				<td colspan="2" align="center"><sf:errors path="password"/></td>
 			</tr>
 
 			<tr>
 				<td colspan="2" align="center" bgcolor="#fff">
-					<input type="submit" value="<s:message code="button.register"/>" class="formbutton"/>
-					<input type="button" value="<s:message code="button.cancel"/>" class="formbutton" 
+					<input type="submit" value="<s:message code="button.register"/>" />
+					<input type="button" value="<s:message code="button.cancel"/>" 
 						onclick="window.location.href='${pageContext.request.contextPath}/'"/>
 				</td>
 			</tr>

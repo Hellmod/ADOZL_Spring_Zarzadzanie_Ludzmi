@@ -1,12 +1,10 @@
 package pl.rafalmiskiewicz.ADOZL.validators;
 
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
-
-
-import pl.rafalmiskiewicz.ADOZL.constants.AppDemoConstants;
+import pl.rafalmiskiewicz.ADOZL.constants.AdozlConstants;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.utilities.AppdemoUtils;
 
@@ -30,7 +28,7 @@ public class ChangePasswordValidator implements Validator {
 	public void checkPasswords(String newPass, Errors errors) {
 		
 		if (!newPass.equals(null)) {
-			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AppDemoConstants.PASSWORD_PATTERN, newPass);
+			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.passwordPattern, newPass);
 			if(!isMatch) {
 				errors.rejectValue("newPassword", "error.userPasswordIsNotMatch");
 			}

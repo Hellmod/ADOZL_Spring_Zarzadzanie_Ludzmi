@@ -3,18 +3,12 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-
-
 import pl.rafalmiskiewicz.ADOZL.user.User;
 
 public interface AdminService {
 	
+	public List<User> findAll();
 	Page<User> findAll(Pageable pageable);
 	User findUserById(int id);
 	void updateUser(int id, int nrRoli, int activity);
-	Page<User> findAllSearch(String param, Pageable pageable);
-	void insertInBatch(List<User> userList);
-	void saveAll(List<User> userList);
-	void deleteUserById(int id);
 }

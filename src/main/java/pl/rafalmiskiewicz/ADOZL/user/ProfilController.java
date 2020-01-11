@@ -1,35 +1,34 @@
 package pl.rafalmiskiewicz.ADOZL.user;
 
-import java.util.Locale;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 import pl.rafalmiskiewicz.ADOZL.validators.ChangePasswordValidator;
 import pl.rafalmiskiewicz.ADOZL.validators.EditUserProfileValidator;
+
+import java.util.Locale;
 
 @Controller
 public class ProfilController {
 	
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
-	private MessageSource messageSource;
-	
+	MessageSource messageSource;
+
 	@GET
 	@RequestMapping(value = "/profil")
-	public String showUserProfilePage(Model model) {	
+	public String showUserProfilePage(Model model) {
 		String username = UserUtilities.getLoggedUser();
 		User user = userService.findUserByEmail(username);
 		int nrRoli = user.getRoles().iterator().next().getId();
@@ -37,7 +36,6 @@ public class ProfilController {
 		model.addAttribute("user", user);
 		return "profil";
 	}
-	
 	@GET
 	@RequestMapping(value = "/editpassword")
 	public String editUserPassword(Model model) {
@@ -46,13 +44,16 @@ public class ProfilController {
 		model.addAttribute("user", user);
 		return "editpassword";
 	}
-	
+
 	@POST
 	@RequestMapping(value = "/updatepass")
 	public String changeUSerPassword(User user, BindingResult result, Model model, Locale locale) {
 		String returnPage = null;
+
 		new ChangePasswordValidator().validate(user, result);
+
 		new ChangePasswordValidator().checkPasswords(user.getNewPassword(), result);
+
 		if (result.hasErrors()) {
 			returnPage = "editpassword";
 		} else {
@@ -60,9 +61,10 @@ public class ProfilController {
 			returnPage = "editpassword";
 			model.addAttribute("message", messageSource.getMessage("passwordChange.success", null, locale));
 		}
+
 		return returnPage;
 	}
-	
+
 	@GET
 	@RequestMapping(value = "/editprofil")
 	public String changeUserData(Model model) {
@@ -71,7 +73,7 @@ public class ProfilController {
 		model.addAttribute("user", user);
 		return "editprofil";
 	}
-	
+
 	@POST
 	@RequestMapping(value = "/updateprofil")
 	public String changeUserDataAction(User user, BindingResult result, Model model, Locale locale) {
@@ -86,5 +88,9 @@ public class ProfilController {
 		}
 		return returnPage;
 	}
+
+
+
+
 
 }

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,9 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
-	
+
+	@Qualifier("userRepository")
 	@Autowired
 	private UserRepository userRepository;
+	@Qualifier("roleRepository")
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired
@@ -27,10 +30,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void saveUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setActive(0);
+		user.setActive(1);
+		
 		Role role = roleRepository.findByRole("ROLE_USER");
 		user.setRoles(new HashSet<Role>(Arrays.asList(role)));
+		
 		userRepository.save(user);
+		
 	}
 
 	@Override
@@ -43,8 +49,4 @@ public class UserServiceImpl implements UserService {
 		userRepository.updateUserProfile(newName, newLastName, newEmail, id);
 	}
 
-	@Override
-	public void updateUserActivation(int activeCode, String activationCode) {
-		userRepository.updateActivation(activeCode, activationCode);
-	}
 }

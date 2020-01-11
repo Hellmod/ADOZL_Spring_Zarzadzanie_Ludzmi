@@ -1,63 +1,66 @@
 package pl.rafalmiskiewicz.ADOZL.user;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int id;
-	
+
 	@Column(name = "email")
 	@NotNull
 	private String email;
-	
+
 	@Column(name = "password")
 	@NotNull
 	private String password;
-	
+
 	@Column(name = "name")
 	@NotNull
 	private String name;
-	
+
 	@Column(name = "last_name")
 	@NotNull
 	private String lastName;
-	
+
 	@Column(name = "active")
 	@NotNull
 	private int active;
-	
+
+	@Column(name = "telephone")
+	@NotNull
+	private int telephone;
+
+	@Column(name = "mark")
+	@NotNull
+	private int mark;
+
+	@Column(name = "is_fired")
+	@NotNull
+	private Boolean is_fired;
+
+	@Column(name = "is_new")
+	@NotNull
+	private Boolean is_new;
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
 	@Transient
 	private int nrRoli;
-	
+
 	@Transient
 	private String newPassword;
-	
-	@Column(name = "activation_code")
-	private String activationCode;
-	
-	
+
+
 	//gettery i settery
 	public int getId() {
 		return id;
@@ -98,25 +101,33 @@ public class User {
 	public Set<Role> getRoles() {
 		return roles;
 	}
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRoles(Set<Role> roles) {	this.roles = roles;}
+	public int getNrRoli() {return nrRoli;}
+	public void setNrRoli(int nrRoli) {	this.nrRoli = nrRoli;}
+	public String getNewPassword() { return newPassword;}
+	public void setNewPassword(String newPassword) { this.newPassword = newPassword;}
+	public int getTelephone() {
+		return telephone;
 	}
-	public int getNrRoli() {
-		return nrRoli;
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
 	}
-	public void setNrRoli(int nrRoli) {
-		this.nrRoli = nrRoli;
+	public Boolean getIs_fired() {
+		return is_fired;
 	}
-	public String getNewPassword() {
-		return newPassword;
+	public void setIs_fired(Boolean is_fired) {
+		this.is_fired = is_fired;
 	}
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
+	public Boolean getIs_new() {
+		return is_new;
 	}
-	public String getActivationCode() {
-		return activationCode;
+	public void setIs_new(Boolean is_new) {
+		this.is_new = is_new;
 	}
-	public void setActivationCode(String activationCode) {
-		this.activationCode = activationCode;
+	public int getMark() {
+		return mark;
+	}
+	public void setMark(int mark) {
+		this.mark = mark;
 	}
 }

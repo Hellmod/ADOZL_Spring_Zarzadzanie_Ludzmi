@@ -1,6 +1,5 @@
 package pl.rafalmiskiewicz.ADOZL;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class ServerInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-        return application.sources(AppdemoApplication.class);
+        return application.sources(AdozlApplication.class);
     }
 }
