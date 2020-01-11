@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
 	@Qualifier("userRepository")
 	@Autowired
 	private UserRepository userRepository;
+	@Qualifier("roleRepository")
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired

@@ -19,16 +19,14 @@
 		<c:out value="${message }" />
 </p>
 
-	<sf:form id="usersForm" action="adduser" modelAttribute="user"
-		enctype="multipart/form-data" method="POST">
+	<sf:form id="usersForm" action="adduser" modelAttribute="user" enctype="multipart/form-data" method="POST">
 
 		<table width="500" border="0" cellpadding="4" cellspacing="1"
 			align="center">
 
 			<tr>
 				<td width="130" align="right" ><s:message code="register.name"/></td>
-				<td width="270" align="left"><sf:input path="name"
-						size="28" id="name" /></td>
+				<td width="270" align="left"><sf:input path="name" size="28" id="name" /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><sf:errors path="name"/></td>
@@ -36,13 +34,23 @@
 
 			<tr>
 				<td width="130" align="right"><s:message code="register.lastName"/></td>
-				<td width="270" align="left"><sf:input path="lastName"
-						size="28" /></td>
+				<td width="270" align="left"><sf:input path="lastName" size="28" /></td>
 			</tr>
 
 			<tr>
 				<td colspan="2" align="center"><sf:errors path="lastName"/></td>
 			</tr>
+
+
+			<tr>
+				<td width="130" align="right"><s:message code="register.telephone"/></td>
+				<td width="270" align="left"><sf:input path="telephone" size="28" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center"><sf:errors path="telephone"/></td>
+			</tr>
+
 
 			<tr>
 				<td width="130" align="right" ><s:message code="register.email"/></td>

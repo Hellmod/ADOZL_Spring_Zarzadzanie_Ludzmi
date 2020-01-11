@@ -38,6 +38,10 @@ public class User {
 	@NotNull
 	private int telephone;
 
+	@Column(name = "mark")
+	@NotNull
+	private int mark;
+
 	@Column(name = "is_fired")
 	@NotNull
 	private Boolean is_fired;
@@ -102,28 +106,28 @@ public class User {
 	public void setNrRoli(int nrRoli) {	this.nrRoli = nrRoli;}
 	public String getNewPassword() { return newPassword;}
 	public void setNewPassword(String newPassword) { this.newPassword = newPassword;}
-
 	public int getTelephone() {
 		return telephone;
 	}
-
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-
 	public Boolean getIs_fired() {
 		return is_fired;
 	}
-
 	public void setIs_fired(Boolean is_fired) {
 		this.is_fired = is_fired;
 	}
-
 	public Boolean getIs_new() {
 		return is_new;
 	}
-
 	public void setIs_new(Boolean is_new) {
 		this.is_new = is_new;
+	}
+	public int getMark() {
+		return mark;
+	}
+	public void setMark(int mark) {
+		this.mark = mark;
 	}
 }
