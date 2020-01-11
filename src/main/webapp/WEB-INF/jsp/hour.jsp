@@ -17,16 +17,18 @@
 	<tr>
 		<td width="40" align="center"><s:message code="hour.id_hours"/></td>
 		<td width="200" align="center"><s:message code="hour.id_user"/></td>
+		<td width="200" align="center"><s:message code="hour.date"/></td>
 		<td width="200" align="center"><s:message code="hour.hour_from"/></td>
 		<td width="220" align="center"><s:message code="hour.hour_to"/></td>
 
 	</tr>
 	<c:forEach var="u" items="${hourList }">
 		<tr>
-			<td><c:out value="${u.id_hours }" /></td>
-			<td><c:out value="${u.id_user }" /></td>
-			<td><c:out value="${u.hour_from }" /></td>
-			<td><c:out value="${u.hour_to }" /></td>
+			<td width="200" align="center"><c:out value="${u.id_hours }" /></td>
+			<td width="200" align="center"><c:out value="${u.id_user }" /></td>
+			<td width="200" align="center"><c:out value="${u.date }" /></td>
+			<td width="200" align="center"><c:out value="${u.hour_from }" /></td>
+			<td width="200" align="center"><c:out value="${u.hour_to }" /></td>
 		</tr>
 	</c:forEach>
 	
