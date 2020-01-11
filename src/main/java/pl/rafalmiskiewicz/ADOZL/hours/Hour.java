@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 
 @Entity
@@ -18,17 +19,11 @@ public class Hour {
     @NotNull
     private String id_user;
 
-    @Column(name = "date")
-    @NotNull
-    private String date;
-
     @Column(name = "hour_from")
-    @NotNull
-    private String hour_from;
+    private Date hour_from;
 
     @Column(name = "hour_to")
-    @NotNull
-    private String hour_to;
+    private Date hour_to;
 
     public int getId_hours() {
         return id_hours;
@@ -36,13 +31,11 @@ public class Hour {
     public String getId_user() {
         return id_user;
     }
-    public String getDate() {
-        return date;
-    }
-    public String getHour_from() {
+
+    public Date getHour_from() {
         return hour_from;
     }
-    public String getHour_to() {
+    public Date getHour_to() {
         return hour_to;
     }
     public void setId_hours(int id_hours) {
@@ -51,13 +44,10 @@ public class Hour {
     public void setId_user(String id_user) {
         this.id_user = id_user;
     }
-    public void setDate(String date) {
-        this.date = date;
-    }
-    public void setHour_from(String hour_from) {
+    public void setHour_from(Date hour_from) {
         this.hour_from = hour_from;
     }
-    public void setHour_to(String hour_to) {
+    public void setHour_to(Date hour_to) {
         this.hour_to = hour_to;
     }
 }

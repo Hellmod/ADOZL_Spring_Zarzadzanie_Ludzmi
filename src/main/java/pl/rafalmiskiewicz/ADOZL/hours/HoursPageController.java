@@ -1,6 +1,7 @@
 package pl.rafalmiskiewicz.ADOZL.hours;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class HoursPageController {
     @Autowired
     private UserService userService;
 
-    @GET
+    @POST
     @RequestMapping(value = "/hour")
     public String openAdminMainPage( Model model) {
         List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());

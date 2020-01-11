@@ -17,7 +17,6 @@
 	<tr>
 		<td width="40" align="center"><s:message code="hour.id_hours"/></td>
 		<td width="200" align="center"><s:message code="hour.id_user"/></td>
-		<td width="200" align="center"><s:message code="hour.date"/></td>
 		<td width="200" align="center"><s:message code="hour.hour_from"/></td>
 		<td width="220" align="center"><s:message code="hour.hour_to"/></td>
 
@@ -26,9 +25,9 @@
 		<tr>
 			<td width="200" align="center"><c:out value="${u.id_hours }" /></td>
 			<td width="200" align="center"><c:out value="${u.id_user }" /></td>
-			<td width="200" align="center"><c:out value="${u.date }" /></td>
 			<td width="200" align="center"><c:out value="${u.hour_from }" /></td>
 			<td width="200" align="center"><c:out value="${u.hour_to }" /></td>
+			<td width="200" align="center"><input type="submit" value="<s:message code="button.edit"/>" /></td>
 		</tr>
 	</c:forEach>
 	
