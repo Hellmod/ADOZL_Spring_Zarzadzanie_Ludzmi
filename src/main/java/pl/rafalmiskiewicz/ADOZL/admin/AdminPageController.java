@@ -1,8 +1,5 @@
 package pl.rafalmiskiewicz.ADOZL.admin;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
@@ -14,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -55,7 +54,7 @@ public class AdminPageController {
 
     @GET
     @RequestMapping(value = "/admin/users/edit/{id}")
-    @Secured(value = { "ROLE_ADMIN" })
+    @Secured(value = {"ROLE_ADMIN"})
     public String getUserToEdit(@PathVariable("id") int id, Model model) {
 
         User user = new User();

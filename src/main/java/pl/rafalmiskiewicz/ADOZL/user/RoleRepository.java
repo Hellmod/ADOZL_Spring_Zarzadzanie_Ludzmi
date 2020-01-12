@@ -7,13 +7,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository("roleRepository")
-public interface RoleRepository extends JpaRepository<Role, Integer>{
-	
-	public Role findByRole(String role);
+public interface RoleRepository extends JpaRepository<Role, Integer> {
 
-	@Modifying
-	@Query("UPDATE User u SET u.password = :newPassword WHERE u.email= :email")
-	public void updateUserPassword(@Param("newPassword") String password, @Param("email") String email);
+    public Role findByRole(String role);
+
+    @Modifying
+    @Query("UPDATE User u SET u.password = :newPassword WHERE u.email= :email")
+    public void updateUserPassword(@Param("newPassword") String password, @Param("email") String email);
 
 
 }

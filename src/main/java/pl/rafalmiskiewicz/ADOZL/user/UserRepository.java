@@ -7,9 +7,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository("userRepository")
-public interface UserRepository extends JpaRepository<User, Integer>{
-	
-	public User findByEmail(String email);
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+    public User findByEmail(String email);
 
     @Modifying
     @Query("UPDATE User u SET u.password = :newPassword WHERE u.email= :email")

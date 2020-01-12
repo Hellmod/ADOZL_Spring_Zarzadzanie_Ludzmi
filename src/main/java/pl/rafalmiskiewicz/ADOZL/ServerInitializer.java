@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServerInitializer extends SpringBootServletInitializer {
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(AdozlApplication.class);
     }
 }
