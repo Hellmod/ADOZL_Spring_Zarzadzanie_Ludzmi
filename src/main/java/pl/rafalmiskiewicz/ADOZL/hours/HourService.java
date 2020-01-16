@@ -11,4 +11,8 @@ public interface HourService {
 
     List<Hour> findAllByUserId(int id);
 
+    void save(Hour hour);
+
+    // void savehour(Hour hour);
+    
 }

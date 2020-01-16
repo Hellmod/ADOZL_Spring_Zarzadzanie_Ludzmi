@@ -1,7 +1,6 @@
 package pl.rafalmiskiewicz.ADOZL.hours;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 
@@ -14,8 +13,7 @@ public class Hour {
     private int id_hours;
 
     @Column(name = "id_user")
-    @NotNull
-    private String id_user;
+    private int id_user;
 
     @Column(name = "hour_from")
     private Date hour_from;
@@ -31,11 +29,11 @@ public class Hour {
         this.id_hours = id_hours;
     }
 
-    public String getId_user() {
+    public int getId_user() {
         return id_user;
     }
 
-    public void setId_user(String id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
@@ -43,8 +41,13 @@ public class Hour {
         return hour_from;
     }
 
+
     public void setHour_from(Date hour_from) {
         this.hour_from = hour_from;
+    }
+
+    public void setHour_from(String hour_from) {
+        this.hour_from = new Date();
     }
 
     public Date getHour_to() {

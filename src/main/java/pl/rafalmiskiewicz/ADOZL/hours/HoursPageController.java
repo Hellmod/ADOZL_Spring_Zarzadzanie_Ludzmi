@@ -1,6 +1,7 @@
 package pl.rafalmiskiewicz.ADOZL.hours;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.user.UserService;
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
+import pl.rafalmiskiewicz.ADOZL.validators.HourAddValidator;
 import pl.rafalmiskiewicz.ADOZL.validators.UserRegisterValidator;
 
 import javax.ws.rs.GET;
@@ -20,6 +22,9 @@ import java.util.Locale;
 
 @Controller
 public class HoursPageController {
+
+    @Autowired
+    MessageSource messageSource;
 
     @Autowired
     private HourService hourService;
@@ -56,37 +61,27 @@ public class HoursPageController {
         Hour h = new Hour();
         model.addAttribute("hour", h);
 
-        return "hour/houredit";
+        return "hour/addhour";
     }
 
     @POST
     @RequestMapping(value = "/hour/inserthour")
-    public String registerHour(Hour hour, Model model) {
-/*
+    public String registerHour(Hour hour,  BindingResult result, Model model, Locale locale) {
         String returnPage = null;
-        user.setMark(50);
-        user.setActive(1);
-        user.setIs_fired(false);
-        user.setIs_new(true);
+        hour.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
 
-
-        User userExist = userService.findUserByEmail(user.getEmail());
-
-        new UserRegisterValidator().validateEmailExist(userExist, result);
-
-        new UserRegisterValidator().validate(user, result);
-
+        new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
-            returnPage = "register";
+            returnPage = "hour/houredit";
         } else {
-            userService.saveUser(user);
-            model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
-            model.addAttribute("user", new User());
-            returnPage = "register";
+            hourService.save(hour);
+            model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
+            model.addAttribute("hour", new Hour());
+            returnPage = "hour/houredit";
         }
-        */
-        return "hour/houredit";
+
+        return returnPage;
 
 
     }

@@ -17,9 +17,8 @@
 <p align="center">
 		<c:out value="${message }" />
 </p>
-<sf:form id="hourForm" action="addhour" modelAttribute="hour/inserthour" enctype="multipart/form-data" method="POST">
-	<table width="500" border="0" cellpadding="4" cellspacing="1"
-		   align="center">
+<sf:form id="hourForm" action="inserthour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+	<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
 
 		<tr>
 			<td width="130" align="right" ><s:message code="hour.hour_from"/></td>
