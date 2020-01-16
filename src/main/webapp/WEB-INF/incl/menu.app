@@ -13,6 +13,7 @@
 			<a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
+    		<a href="/hour/addhour"><s:message code="menu.hourAdd"/></a>
 		    <a href="/hour"><s:message code="menu.hour"/></a>
 			<a href="/profil"><s:message code="menu.profil"/></a>
 			<a href="/logout"><s:message code="menu.logout"/></a>	
