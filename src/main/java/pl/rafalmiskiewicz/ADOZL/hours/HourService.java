@@ -18,6 +18,8 @@ public interface HourService {
     void saveHourNew(Hour hour);
     void insertHourString(Hour hour);
 
+    void updateHour(Hour hour);
+
     // void savehour(Hour hour);
     
 }
