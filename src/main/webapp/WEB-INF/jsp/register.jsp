@@ -21,8 +21,7 @@
 
 	<sf:form id="usersForm" action="adduser" modelAttribute="user" enctype="multipart/form-data" method="POST">
 
-		<table width="500" border="0" cellpadding="4" cellspacing="1"
-			align="center">
+		<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
 
 			<tr>
 				<td width="130" align="right" ><s:message code="register.name"/></td>

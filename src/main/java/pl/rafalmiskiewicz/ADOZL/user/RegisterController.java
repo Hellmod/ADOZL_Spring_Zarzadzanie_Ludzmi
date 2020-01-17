@@ -38,13 +38,11 @@ public class RegisterController {
         user.setIs_fired(false);
         user.setIs_new(true);
 
-
         User userExist = userService.findUserByEmail(user.getEmail());
 
         new UserRegisterValidator().validateEmailExist(userExist, result);
 
         new UserRegisterValidator().validate(user, result);
-
 
         if (result.hasErrors()) {
             returnPage = "register";

@@ -56,6 +56,9 @@
 						<c:when test="${u.nrRoli == 1 }">
 							<font color="green"><s:message code="word.admin"/></font>
 						</c:when>
+						<c:when test="${u.nrRoli == 3 }">
+							<font color="blue"><s:message code="word.controller"/></font>
+						</c:when>
 						<c:otherwise>
 							<s:message code="word.user"/>
 						</c:otherwise>

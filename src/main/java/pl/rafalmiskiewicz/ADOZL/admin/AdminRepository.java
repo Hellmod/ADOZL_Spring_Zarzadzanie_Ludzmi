@@ -18,6 +18,6 @@ public interface AdminRepository extends JpaRepository<User, Integer> {
     void updateActivationUser(@Param("intActive") int active, @Param("id") int id);
 
     @Modifying
-    @Query(value = "UPDATE user_role r SET r.role_id = :roleId WHERE r.user_id= :id", nativeQuery = true)
+    @Query(value = "UPDATE user_role r SET r.id_role = :roleId WHERE r.id_user= :id", nativeQuery = true)
     void updateRoleUser(@Param("roleId") int nrRoli, @Param("id") int id);
 }
