@@ -74,7 +74,8 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <script>
-	document.getElementById("register").classList.add("active");
+	document.getElementById("allhour").classList.add("active");
+	document.getElementById("hourAdd").classList.add("active");
 </script>
 </body>
 </html>
