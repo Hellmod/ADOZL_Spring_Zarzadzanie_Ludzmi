@@ -27,7 +27,7 @@
 </header>
 <main>
 
-	<section class="table">
+	<section class="adozl">
 
 		<div class="container">
 
@@ -75,7 +75,6 @@
 
 <script>
 	document.getElementById("allhour").classList.add("active");
-	document.getElementById("hourAdd").classList.add("active");
 </script>
 </body>
 </html>

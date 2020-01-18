@@ -27,7 +27,7 @@
 </header>
 <main>
 
-	<section class="table">
+	<section class="adozl">
 		<div class="container">
 			<header>
 				<h1><s:message code="logowanie.pageName" /></h1>

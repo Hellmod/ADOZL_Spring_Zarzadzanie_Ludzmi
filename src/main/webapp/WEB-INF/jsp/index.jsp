@@ -24,7 +24,7 @@
 </header>
 <main>
 
-    <section class="table">
+    <section class="adozl">
 
         <div class="container">
 

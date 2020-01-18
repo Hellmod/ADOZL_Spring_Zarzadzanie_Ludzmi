@@ -77,7 +77,7 @@ public class HoursPageController {
     @RequestMapping(value = "/hour/edit")
     @Secured(value = {"ROLE_ADMIN"})
     public String getHourIdToEditNew(Hour hour, Model model) {
-
+        //ToDo wyświetlenie godzin do edycji
 
         System.out.println(hour);
         hour=hourService.findHourById(hour.getId_hours());
@@ -88,7 +88,7 @@ public class HoursPageController {
         }
         model.addAttribute("hour", hour);
 
-        return "hour/houredit";
+        return "hour/edithour";
     }
 
     @GET
@@ -99,7 +99,7 @@ public class HoursPageController {
         Hour h = new Hour();
         model.addAttribute("hour", h);
 
-        return "hour/houradd";
+        return "hour/addhour";
     }
 
     @POST
@@ -148,13 +148,13 @@ public class HoursPageController {
         new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
-            returnPage = "hour/houredit";
+            returnPage = "hour/edithour";
         } else {
             hourService.updateHour(hour);
 
             model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
             model.addAttribute("hour", new Hour());
-            returnPage = "hour/houredit";
+            returnPage = "hour/edithour";
         }
 
         return returnPage;
