@@ -116,7 +116,7 @@ public class HoursPageController {
         new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
-            returnPage = "hour/houredit";
+            returnPage = "hour/addhour";
         } else {
             //hourRepository.save(hour);
             //hourService.saveHour(hour);
@@ -124,7 +124,7 @@ public class HoursPageController {
             //hourService.insertHourString(hour);
             model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
             model.addAttribute("hour", new Hour());
-            returnPage = "hour/houredit";
+            returnPage = "hour/addhour";
         }
 
         return returnPage;
