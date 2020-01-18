@@ -10,8 +10,8 @@
 
 				<ul class="navbar-nav mr-auto">
 
-					<li class="nav-item active">
-						<a class="nav-link" href="/"> <s:message code="menu.mainPage"/> </a>
+					<li class="nav-item">
+						<a class="nav-link" id="index" href="/"> <s:message code="menu.mainPage"/> </a>
 					</li>
 <sec:authorize access="isAuthenticated()">
 					<li class="nav-item dropdown">
@@ -50,13 +50,15 @@
 </sec:authorize>
 
 				</ul>
+<div class="navbar-nav mrl-auto">
 <sec:authorize access="isAuthenticated()">
 				<a class="nav-link" href="/logout"> Wyloguj </a>
 </sec:authorize>
 <sec:authorize access="hasRole('ANONYMOUS')">
-				<a class="nav-link" href="/login"> <s:message code="menu.login"/> </a>
-				<a class="nav-link" href="/register"> <s:message code="menu.register"/> </a>
+				<a id="login" class="nav-link" href="/login"> <s:message code="menu.login"/> </a>
+				<a id="register" class="nav-link" href="/register"> <s:message code="menu.register"/> </a>
 </sec:authorize>
 			</div>
+</div>
 
 		</nav>

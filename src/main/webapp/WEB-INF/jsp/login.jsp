@@ -28,19 +28,13 @@
 <main>
 
 	<section class="table">
-
 		<div class="container">
-
 			<header>
-
 				<h1><s:message code="logowanie.pageName" /></h1>
-
-
 			</header>
-
 			<div class="row">
 
-				<div class="col-sm-6 col-md-5 offset-md-3 offset-sm-3">
+				<div class="col-sm-6 offset-sm-3">
 				<form id="loginForm" action="/login" method="POST">
 					<div class="form-group">
 						<label for="email"><s:message code="register.email" /></label>
@@ -72,5 +66,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 <script src="/resources/js/bootstrap.min.js"></script>
+
+<script>
+	document.getElementById("login").classList.add("active");
+</script>
+
 </body>
 </html>

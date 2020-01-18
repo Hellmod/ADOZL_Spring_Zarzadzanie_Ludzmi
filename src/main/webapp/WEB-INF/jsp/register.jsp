@@ -1,84 +1,96 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="s"  uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><s:message code="menu.register"/></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title><s:message code="menu.register"/></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
 </head>
 <body>
-<%@include file="/WEB-INF/incl/menu.app" %>
+<header>
+	<%@include file="/WEB-INF/incl/menuNew.app" %>
+</header>
+<main>
 
-<h2><s:message code="menu.register"/></h2>
+	<section class="table">
 
-<p align="center">
-		<c:out value="${message }" />
-</p>
+		<div class="container">
 
-	<sf:form id="usersForm" action="adduser" modelAttribute="user" enctype="multipart/form-data" method="POST">
+			<header>
+				<h1><s:message code="menu.register" /></h1>
+			</header>
 
-		<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
+			<div class="row">
 
-			<tr>
-				<td width="130" align="right" ><s:message code="register.name"/></td>
-				<td width="270" align="left"><sf:input path="name" size="28" id="name" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><sf:errors path="name"/></td>
-			</tr>
+				<div class="col-sm-6 offset-sm-3">
+					<sf:form id="usersForm" action="adduser" modelAttribute="user" enctype="multipart/form-data" method="POST">
 
-			<tr>
-				<td width="130" align="right"><s:message code="register.lastName"/></td>
-				<td width="270" align="left"><sf:input path="lastName" size="28" /></td>
-			</tr>
+						<div class="form-group">
+							<label for="name"><s:message code="register.name"/></label>
+							<input name="name" type="text" class="form-control" id="name" placeholder="<s:message code="register.name"/>"">
+							<small id="nameHelp" class="form-text text-danger"><sf:errors path="name"/></small>
+						</div>
 
-			<tr>
-				<td colspan="2" align="center"><sf:errors path="lastName"/></td>
-			</tr>
+						<div class="form-group">
+							<label for="lastName"><s:message code="register.lastName"/></label>
+							<input name="lastName" type="text" class="form-control" id="lastName" placeholder="<s:message code="register.lastName"/>">
+							<small class="form-text text-danger"><sf:errors path="lastName"/></small>
+						</div>
 
+						<div class="form-group">
+							<label for="telephone"><s:message code="register.telephone"/></label>
+							<input name="telephone" type="text" class="form-control" id="telephone" placeholder="<s:message code="register.telephone"/>">
+							<small class="form-text text-danger"><sf:errors path="telephone"/></small>
+						</div>
 
-			<tr>
-				<td width="130" align="right"><s:message code="register.telephone"/></td>
-				<td width="270" align="left"><sf:input path="telephone" size="28" /></td>
-			</tr>
+						<div class="form-group">
+							<label for="email"><s:message code="register.email" /></label>
+							<input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+							<small class="form-text text-danger"><sf:errors path="email"/></small>
+						</div>
 
-			<tr>
-				<td colspan="2" align="center"><sf:errors path="telephone"/></td>
-			</tr>
+						<div class="form-group">
+							<label for="password"><s:message code="register.password" /></label>
+							<input name="password" type="password" class="form-control" id="password" placeholder="Password">
+							<small class="form-text text-danger"><sf:errors path="password"/></small>
+						</div>
 
+						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>
+						<button type="submit" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
 
-			<tr>
-				<td width="130" align="right" ><s:message code="register.email"/></td>
-				<td width="270" align="left"><sf:input path="email" size="28" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><sf:errors path="email"/></td>
-			</tr>
+					</sf:form>
+				</div>
 
-			<tr>
-				<td width="130" align="right" ><s:message code="register.password"/></td>
-				<td width="270" align="left"><sf:password path="password" size="28" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><sf:errors path="password"/></td>
-			</tr>
+			</div>
 
-			<tr>
-				<td colspan="2" align="center" bgcolor="#fff">
-					<input type="submit" value="<s:message code="button.register"/>" />
-					<input type="button" value="<s:message code="button.cancel"/>" 
-						onclick="window.location.href='${pageContext.request.contextPath}/'"/>
-				</td>
-			</tr>
+		</div>
+	</section>
 
-		</table>
+</main>
 
-	</sf:form>
-	
-	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="/resources/js/bootstrap.min.js"></script>
+
+<script>
+	document.getElementById("register").classList.add("active");
+</script>
 </body>
 </html>
