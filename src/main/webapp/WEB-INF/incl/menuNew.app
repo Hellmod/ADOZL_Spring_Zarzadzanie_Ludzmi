@@ -11,7 +11,7 @@
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item">
-						<a class="nav-link" id="index" href="/"> <s:message code="menu.mainPage"/> </a>
+						<a id="index" class="nav-link"  href="/"> <s:message code="menu.mainPage"/> </a>
 					</li>
 <sec:authorize access="isAuthenticated()">
 					<li class="nav-item dropdown">
@@ -19,33 +19,22 @@
 
 						<div class="dropdown-menu" aria-labelledby="submenu">
 
-							<a class="dropdown-item" href="/hour"> <s:message code="menu.hour"/> </a>
-							<a class="dropdown-item" href="/hour/addhour"> <s:message code="menu.hourAdd"/> </a>
-
+							<a id="hour" class="dropdown-item" href="/hour"> <s:message code="menu.hour"/> </a>
 							<div class="dropdown-divider"></div>
-
-							<a class="dropdown-item" href="#"> Sylwetki zawodników </a>
-							<a class="dropdown-item" href="#"> Skocznie narciarskie </a>
+							<a id="hourAdd" class="dropdown-item" href="/hour/addhour"> <s:message code="menu.hourAdd"/> </a>
 
 						</div>
 
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="/profil"> <s:message code="menu.profil"/> </a>
+						<a id="profil" class="nav-link" href="/profil"> <s:message code="menu.profil"/> </a>
 					</li>
 
-					<li class="nav-item">
-						<a class="nav-link" href="/hour"> <s:message code="menu.hour"/> </a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link disabled" href="/hour/addhour"> <s:message code="menu.hourAdd"/> </a>
-					</li>
 </sec:authorize>
 <sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li class="nav-item">
-						<a class="nav-link" href="/admin/users/1"> <s:message code="menu.users"/></a>
+						<a id="users" class="nav-link" href="/admin/users/1"> <s:message code="menu.users"/></a>
 					</li>
 </sec:authorize>
 

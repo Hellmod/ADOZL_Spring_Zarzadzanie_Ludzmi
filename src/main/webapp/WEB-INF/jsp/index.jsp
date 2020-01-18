@@ -32,7 +32,7 @@
 
                 <h1>Poznajmy zawodników</h1>
                 <p>W tej sekcji specjalnie dla Was prezentujemy sylwetki zawodników, których znamy z rywalizacji w konkursach pucharu świata oraz olimpijskich. Poznaj osiągnięcia, statystyki, a także ciekawostki na temat najbardziej rozpoznawalnych zawodników!</p>
-
+                <p><c:out value="${message }" /></p>
             </header>
 
             <div class="row">

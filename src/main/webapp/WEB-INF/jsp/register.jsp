@@ -33,6 +33,7 @@
 
 			<header>
 				<h1><s:message code="menu.register" /></h1>
+				<p><c:out value="${message }" /></p>
 			</header>
 
 			<div class="row">

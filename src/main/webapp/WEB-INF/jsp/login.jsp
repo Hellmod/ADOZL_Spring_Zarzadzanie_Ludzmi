@@ -31,7 +31,9 @@
 		<div class="container">
 			<header>
 				<h1><s:message code="logowanie.pageName" /></h1>
+				<p><c:out value="${message }" /></p>
 			</header>
+			
 			<div class="row">
 
 				<div class="col-sm-6 offset-sm-3">
