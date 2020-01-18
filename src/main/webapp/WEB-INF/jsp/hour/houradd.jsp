@@ -7,18 +7,19 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><s:message code="hourEdit.pageName"/></title>
+    <title><s:message code="menu.hourAdd"/></title>
 </head>
 <body>
 <%@include file="/WEB-INF/incl/menu.app" %>
-<h2><s:message code="hourEdit.pageName"/></h2>
+
+<h2><s:message code="menu.hourAdd"/></h2>
 
 <p align="center">
     <c:out value="${message }" />
 </p>
-<sf:form id="hourForm" action="edit/updatehour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+<sf:form id="hourForm" action="inserthour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
     <table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
-        <sf:hidden path="id_hours"/>
+
         <tr>
             <td width="130" align="right" ><s:message code="hour.hour_from"/></td>
             <td width="270" align="left"><sf:input path="hour_from_string" size="28"/></td>
@@ -46,5 +47,6 @@
     </table>
 
 </sf:form>
+
 </body>
 </html>

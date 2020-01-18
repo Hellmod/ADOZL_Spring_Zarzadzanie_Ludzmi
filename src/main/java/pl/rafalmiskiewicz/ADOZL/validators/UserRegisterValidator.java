@@ -30,14 +30,14 @@ public class UserRegisterValidator implements Validator {
                 errors.rejectValue("email", "error.userEmailIsNotMatch");
             }
         }
-
+/*
 		if (!u.getPassword().equals(null)) {
 			boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.PASSWORD_PATTERN, u.getPassword());
 			if(!isMatch) {
 				errors.rejectValue("password", "error.userPasswordIsNotMatch");
 			}
 		}
-
+*/
     }
 
 
