@@ -29,7 +29,4 @@ public interface HourRepository extends JpaRepository<Hour, Integer> {
     @Query(value = "INSERT INTO `hours` (`id_hours`, `id_user`, `hour_from`, `hour_to`) VALUES (NULL, :id_user, :hour_from, :hour_to);", nativeQuery = true)
     public void insertHourString(@Param("id_user") int id_user, @Param("hour_from") String hour_from, @Param("hour_to") String hour_to);
 
-    @Modifying
-    @Query(value = "UPDATE `hours` SET `hour_from` = :hour_from, `hour_to` = :hour_to WHERE `hours`.`id_hours` = :id_hours", nativeQuery = true)
-    void updateHour(@Param("id_hours") int id_hours, @Param("hour_from") Date hour_from, @Param("hour_to") Date hour_to);
 }

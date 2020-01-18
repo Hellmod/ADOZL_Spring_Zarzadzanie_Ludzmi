@@ -52,11 +52,6 @@ public class HourServiceImpl implements HourService {
     public void insertHourString(Hour hour) {
         hourRepository.insertHourString(hour.getId_user(),hour.getHour_from_string(),hour.getHour_to_string());
     }
-
-    @Override
-    public void updateHour(Hour hour) {
-        hourRepository.updateHour(hour.getId_hours(),hour.getHour_from(),hour.getHour_to());
-    }
 /*
     @Override
     public void save(Hour hour) {

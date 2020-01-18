@@ -37,55 +37,23 @@ public class HoursPageController {
     @Qualifier("hourRepository")
     @Autowired
     private HourRepository hourRepository;
-/*
+
     @POST
     @RequestMapping(value = "/hour")
-    public String openHourMainPage(Model model) {
+    public String openAdminMainPage(Model model) {
         List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         model.addAttribute("hourList", hourList);
         return "hour/hour";
     }
-*/
-    @POST
-    @RequestMapping(value = "/hour")
-    public String openHourNewMainPage(Model model) {
-        List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
-        model.addAttribute("hourList", hourList);
-        model.addAttribute(new Hour());
-        return "hour/hour";
-    }
-/**
+
     @GET
     @RequestMapping(value = "/hour/edit/{id_hour}")
     @Secured(value = {"ROLE_ADMIN"})
     public String getHourIdToEdit(@PathVariable("id_hour") int id, Model model) {
 
         Hour hour = new Hour();
-        hour.setId_hours(id);
         hour = hourService.findHourById(id);
-        try {
-            hour.dateToString();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("hour", hour);
 
-        return "hour/houredit";
-    }
-*/
-    @GET
-    @RequestMapping(value = "/hour/edit")
-    @Secured(value = {"ROLE_ADMIN"})
-    public String getHourIdToEditNew(Hour hour, Model model) {
-
-
-        System.out.println(hour);
-        hour=hourService.findHourById(hour.getId_hours());
-        try {
-            hour.dateToString();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         model.addAttribute("hour", hour);
 
         return "hour/houredit";
@@ -99,7 +67,7 @@ public class HoursPageController {
         Hour h = new Hour();
         model.addAttribute("hour", h);
 
-        return "hour/houradd";
+        return "hour/addhour";
     }
 
     @POST
@@ -122,36 +90,6 @@ public class HoursPageController {
             //hourService.saveHour(hour);
             hourService.saveHourNew(hour);
             //hourService.insertHourString(hour);
-            model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
-            model.addAttribute("hour", new Hour());
-            returnPage = "hour/houredit";
-        }
-
-        return returnPage;
-
-
-    }
-
-
-    @POST
-    @RequestMapping(value = "/hour/edit/updatehour")
-    public String editHour(Hour hour,  BindingResult result, Model model, Locale locale) {
-
-        String returnPage = null;
-        try {
-            hour.stringToDate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        //hour.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
-        new HourAddValidator().validate(hour, result);
-
-        if (result.hasErrors()) {
-            returnPage = "hour/houredit";
-        } else {
-            hourService.updateHour(hour);
-
             model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
             model.addAttribute("hour", new Hour());
             returnPage = "hour/houredit";

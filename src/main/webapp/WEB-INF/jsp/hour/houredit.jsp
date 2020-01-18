@@ -16,24 +16,25 @@
 <p align="center">
     <c:out value="${message }" />
 </p>
-<sf:form id="hourForm" action="edit/updatehour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-   <table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
-       <sf:hidden path="id_hours"/>
+<sf:form id="hourForm" action="${pageContext.request.contextPath}/hour/updatehour/${hour.id_hours}" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+   <table width="500" border="0" cellpadding="4" cellspacing="1"
+           align="center">
+
         <tr>
             <td width="130" align="right" ><s:message code="hour.hour_from"/></td>
-            <td width="270" align="left"><sf:input path="hour_from_string" size="28"/></td>
+            <td width="270" align="left"><sf:input path="hour_from" size="28"/></td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><font color="red"><sf:errors path="hour_from_string"/></font></td>
+            <td colspan="2" align="center"><font color="red"><sf:errors path="hour_from"/></font></td>
         </tr>
 
         <tr>
             <td width="130" align="right"><s:message code="hour.hour_to"/></td>
-            <td width="270" align="left"><sf:input path="hour_to_string" size="28" /></td>
+            <td width="270" align="left"><sf:input path="hour_to" size="28" /></td>
         </tr>
 
         <tr>
-            <td colspan="2" align="center"><font color="red"><sf:errors path="hour_to_string"/></font></td>
+            <td colspan="2" align="center"><font color="red"><sf:errors path="hour_to"/></font></td>
         </tr>
 
         <tr>

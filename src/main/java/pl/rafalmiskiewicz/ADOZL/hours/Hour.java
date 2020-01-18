@@ -75,12 +75,8 @@ public class Hour {
     }
 
     public void stringToDate() throws ParseException {
+
         setHour_to(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(hour_to_string));
         setHour_from(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(hour_from_string));
-    }
-
-    public void dateToString() throws ParseException {
-        setHour_from_string(getHour_from().toString());
-        setHour_to_string(getHour_to().toString());
     }
 }
