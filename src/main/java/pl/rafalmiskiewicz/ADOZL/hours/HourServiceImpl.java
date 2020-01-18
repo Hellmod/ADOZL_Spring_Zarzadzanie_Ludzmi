@@ -16,7 +16,6 @@ import java.util.List;
 @Transactional
 public class HourServiceImpl implements HourService {
 
-    @Qualifier("hourRepository")
     @Autowired
     private HourRepository hourRepository;
 
