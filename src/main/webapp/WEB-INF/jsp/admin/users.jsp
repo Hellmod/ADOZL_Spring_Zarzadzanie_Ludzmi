@@ -57,10 +57,10 @@
 								<c:set var="licznik" value="${licznik+1}"/>
 								<tr onmouseover="changeTrBg(this)" onmouseout="defaultTrBg(this)">
 									<td align="right"><c:out value="${licznik }"/></td>
-									<td align="right"><a href="edit/${u.id }"><c:out value="${u.id }" /></a></td>
-									<td align="left"><a href="edit/${u.id }"><c:out value="${u.name }" /></a></td>
-									<td align="left"><a href="edit/${u.id }"><c:out value="${u.lastName }" /></a></td>
-									<td align="center"><a href="edit/${u.id }"><c:out value="${u.email }" /></a></td>
+									<td align="right"><c:out value="${u.id }" /></td>
+									<td align="left"><c:out value="${u.name }" /></td>
+									<td align="left"><c:out value="${u.lastName }" /></td>
+									<td align="center"><c:out value="${u.email }" /></td>
 									<td align="center">
 										<c:choose>
 											<c:when test="${u.active == 1 }">
@@ -74,13 +74,13 @@
 									<td align="center">
 										<c:choose>
 											<c:when test="${u.nrRoli == 1 }">
-												<font color="green"><s:message code="word.admin"/></font>
+												<span color="text-success"><s:message code="word.admin"/></span>
 											</c:when>
 											<c:when test="${u.nrRoli == 3 }">
-												<font color="blue"><s:message code="word.controller"/></font>
+												<span class="text-primary"><s:message code="word.controller"/></span>
 											</c:when>
 											<c:otherwise>
-												<s:message code="word.user"/>
+												<span class="text-info"><s:message code="word.user"/></span>
 											</c:otherwise>
 										</c:choose>
 									</td>
