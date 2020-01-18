@@ -29,14 +29,6 @@ public class AdminPageController {
     @Autowired
     private MessageSource messageSource;
 
-
-    @GET
-    @RequestMapping(value = "/admin")
-    @Secured(value = {"ROLE_ADMIN"})
-    public String openAdminMainPage() {
-        return "admin/admin";
-    }
-
     @GET
     @RequestMapping(value = "/admin/users/{page}")
     @Secured(value = {"ROLE_ADMIN"})

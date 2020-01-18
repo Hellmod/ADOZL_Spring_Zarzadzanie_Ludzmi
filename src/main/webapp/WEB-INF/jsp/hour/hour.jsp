@@ -43,8 +43,7 @@
 					<table class="table table-striped table-dark">
 						<thead>
 						<tr>
-							<td><s:message code="hour.id_hours"/></td>
-							<td ><s:message code="hour.id_user"/></td>
+
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 						</tr>
@@ -54,8 +53,7 @@
 							<sf:form id="${u.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
 								<sf:hidden value="${u.id_hours }" path="id_hours"/>
 								<tr>
-									<td ><c:out value="${u.id_hours }" /></td>
-									<td ><c:out value="${u.id_user }" /></td>
+
 									<td ><c:out value="${u.hour_from }" /></td>
 									<td ><c:out value="${u.hour_to }" /></td>
 									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
