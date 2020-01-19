@@ -83,26 +83,8 @@
 									<s:message code="register.is_fired"/>
 								</td>
 								<td  align="left">
-									<c:out value="${user.is_fired }"/>
-								</td>
-							</tr>
-						
-							<tr>
-								<td   align="right" >
-									<s:message code="register.is_new"/>
-								</td>
-								<td  align="left">
-									<c:out value="${user.is_new }"/>
-								</td>
-							</tr>
-							
-							<tr>
-								<td   align="right" >
-									<s:message code="profil.czyAktywny"/>
-								</td>
-								<td  align="left">
 									<c:choose>
-										<c:when test="${user.active == 1 }">
+										<c:when test="${register.is_fired == 1 }">
 											<s:message code="word.tak"/>
 										</c:when>
 										<c:otherwise>
@@ -111,7 +93,7 @@
 									</c:choose>
 								</td>
 							</tr>
-							
+
 							<tr>
 								<td   align="right" >
 									<s:message code="profil.rola"/>
