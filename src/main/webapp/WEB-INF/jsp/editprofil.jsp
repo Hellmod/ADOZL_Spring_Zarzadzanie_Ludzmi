@@ -68,7 +68,7 @@
                         
 
 						<input type="submit" value="<s:message code="button.save"/>" />
-						<input type="button" value="<s:message code="button.cancel"/>" onclick="window.location.href='${pageContext.request.contextPath}/'"/>
+						<input type="reset" value="<s:message code="button.cancel"/>" onclick="window.location.href='${pageContext.request.contextPath}/'"/>
 
 					</sf:form>
 				</div>

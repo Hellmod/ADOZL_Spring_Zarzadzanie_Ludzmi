@@ -2,6 +2,7 @@ package pl.rafalmiskiewicz.ADOZL.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ public class ProfilController {
 
     @GET
     @RequestMapping(value = "/profil")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String showUserProfilePage(Model model) {
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
@@ -35,6 +37,7 @@ public class ProfilController {
 
     @GET
     @RequestMapping(value = "/editpassword")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String editUserPassword(Model model) {
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
@@ -44,6 +47,7 @@ public class ProfilController {
 
     @POST
     @RequestMapping(value = "/updatepass")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String changeUSerPassword(User user, BindingResult result, Model model, Locale locale) {
         String returnPage = null;
 
@@ -64,6 +68,7 @@ public class ProfilController {
 
     @GET
     @RequestMapping(value = "/editprofil")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String changeUserData(Model model) {
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
@@ -73,6 +78,7 @@ public class ProfilController {
 
     @POST
     @RequestMapping(value = "/updateprofil")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String changeUserDataAction(User user, BindingResult result, Model model, Locale locale) {
         String returnPage = null;
         new EditUserProfileValidator().validate(user, result);

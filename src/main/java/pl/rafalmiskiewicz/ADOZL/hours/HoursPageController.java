@@ -34,48 +34,22 @@ public class HoursPageController {
     @Autowired
     private UserService userService;
 
-    @Qualifier("hourRepository")
     @Autowired
     private HourRepository hourRepository;
-    /*
-        @POST
-        @RequestMapping(value = "/hour")
-        public String openHourMainPage(Model model) {
-            List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
-            model.addAttribute("hourList", hourList);
-            return "hour/hour";
-        }
-    */
+
     @POST
     @RequestMapping(value = "/hour")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String openHourNewMainPage(Model model) {
         List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         model.addAttribute("hourList", hourList);
         model.addAttribute(new Hour());
         return "hour/hour";
     }
-    /**
-     @GET
-     @RequestMapping(value = "/hour/edit/{id_hour}")
-     @Secured(value = {"ROLE_ADMIN"})
-     public String getHourIdToEdit(@PathVariable("id_hour") int id, Model model) {
 
-     Hour hour = new Hour();
-     hour.setId_hours(id);
-     hour = hourService.findHourById(id);
-     try {
-     hour.dateToString();
-     } catch (ParseException e) {
-     e.printStackTrace();
-     }
-     model.addAttribute("hour", hour);
-
-     return "hour/houredit";
-     }
-     */
     @GET
     @RequestMapping(value = "/hour/edit")
-    @Secured(value = {"ROLE_ADMIN"})
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String getHourIdToEditNew(Hour hour, Model model) {
         //ToDo wyświetlenie godzin do edycji
 
@@ -104,6 +78,7 @@ public class HoursPageController {
 
     @POST
     @RequestMapping(value = "/hour/inserthour")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String registerHour(Hour hour,  BindingResult result, Model model, Locale locale) {
         String returnPage = null;
         try {
@@ -135,6 +110,7 @@ public class HoursPageController {
 
     @POST
     @RequestMapping(value = "/hour/edit/updatehour")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String editHour(Hour hour,  BindingResult result, Model model, Locale locale) {
 
         String returnPage = null;

@@ -79,7 +79,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>
-						<button type="submit" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
+						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
 				</div>
@@ -98,7 +98,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <script>
-	document.getElementById("register").classList.add("active");
+	document.getElementById("users").classList.add("active");
 </script>
 </body>
 </html>

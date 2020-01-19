@@ -72,7 +72,7 @@
 						</div>
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>
-						<button type="submit" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
+						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
 				</div>
