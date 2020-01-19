@@ -1,0 +1,26 @@
+package pl.rafalmiskiewicz.ADOZL.schedule;
+
+import pl.rafalmiskiewicz.ADOZL.places.Places;
+
+import java.util.List;
+
+
+public interface ScheduleService {
+
+    List<Schedule> findAll();
+
+    Schedule findScheduleById(int id);
+
+    List<Schedule> findAllByUserId(int id);
+
+    //void save(Schedule schedule);
+    void saveSchedule(Schedule schedule);
+
+
+    void saveScheduleNew(Schedule schedule);
+    void insertScheduleString(Schedule schedule);
+
+    void updateSchedule(Schedule schedule);
+
+
+}

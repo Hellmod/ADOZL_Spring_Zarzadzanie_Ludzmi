@@ -10,9 +10,9 @@ import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
-
 @Repository("hourRepository")
 public interface HourRepository extends JpaRepository<Hour, Integer> {
+
     public Hour findById(int id);
 
     @Query(value = "SELECT * FROM hours WHERE hours.id_user=:idUser ", nativeQuery = true)

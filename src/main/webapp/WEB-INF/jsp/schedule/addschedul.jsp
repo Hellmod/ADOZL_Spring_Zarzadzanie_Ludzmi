@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title><s:message code="menu.hour"/></title>
+	<title><s:message code="menu.hourAdd"/></title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,40 +32,32 @@
 		<div class="container">
 
 			<header>
-				<h1><s:message code="menu.hour" /></h1>
+				<h1><s:message code="menu.hourAdd" /></h1>
 				<p><c:out value="${message }" /></p>
 			</header>
-
+			
 			<div class="row">
 
-				<div class="col-sm-10 offset-sm-1">
 
-					<sf:form id="hourSelect" action="hour/edit/search" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+				<div class="col-sm-6 offset-sm-3">
+					<sf:form id="hourForm" action="inserthour" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
+
+						<div class="form-group">
+							<label for="hour_from_string"><s:message code="schedule.hour_from"/></label>
+							<input name="hour_from_string" type="text" class="form-control" id="hour_from_string" placeholder="<s:message code="schedule.hour_from.sample"/>">
+							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
+						</div>
+
+						<div class="form-group">
+							<label for="hour_to_string"><s:message code="schedule.hour_to"/></label>
+							<input name="hour_to_string" type="text" class="form-control" id="hour_to_string" placeholder="<s:message code="schedule.hour_to.sample"/>">
+							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
+						</div>
+
+						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
+						<button type="reset" class="btn btn-primary" onclick="window.location.href='/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
-
-					<table class="table table-striped table-dark">
-						<thead>
-						<tr>
-
-							<td ><s:message code="hour.hour_from"/></td>
-							<td ><s:message code="hour.hour_to"/></td>
-						</tr>
-						</thead>
-						<tbody>
-						<c:forEach var="u" items="${hourList }">
-							<sf:form id="${u.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${u.id_hours }" path="id_hours"/>
-								<tr>
-
-									<td ><c:out value="${u.hour_from }" /></td>
-									<td ><c:out value="${u.hour_to }" /></td>
-									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
-								</tr>
-							</sf:form>
-						</c:forEach>
-						</tbody>
-					</table>
 				</div>
 
 			</div>

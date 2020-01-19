@@ -26,18 +26,29 @@
 						</div>
 
 					</li>
-
 					<li class="nav-item">
-						<a id="profil" class="nav-link" href="/profil"> <s:message code="menu.profil"/> </a>
+							<a id="schedule" class="nav-link" href="/schedule"> <s:message code="menu.schedule"/> </a>
 					</li>
+
 
 </sec:authorize>
 <sec:authorize access="hasRole('ROLE_ADMIN')">
-					<li class="nav-item">
-						<a id="users" class="nav-link" href="/admin/users/1"> <s:message code="menu.users"/></a>
-					</li>
-</sec:authorize>
 
+					<li class="nav-item dropdown">
+						<a id="alladmin" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> <s:message code="menu.adminPage"/> </a>
+						<div class="dropdown-menu" aria-labelledby="submenu">
+							<a id="users" class="dropdown-item" href="/admin/users/1"> <s:message code="menu.users"/> </a>
+							<div class="dropdown-divider"></div>
+							<a id="Aschedule" class="dropdown-item" href="/admin/schedule"> <s:message code="menu.schedule"/> </a>
+							<a id="Ahour" class="dropdown-item" href="/admin/hour"> <s:message code="menu.hour"/> </a>
+						</div>
+
+					</li>
+
+</sec:authorize>
+					<li class="nav-item">
+						<a id="profil" class="nav-link" href="/profil"> <s:message code="menu.profil"/> </a>
+					</li>
 				</ul>
 <div class="navbar-nav mrl-auto">
 <sec:authorize access="isAuthenticated()">

@@ -40,29 +40,24 @@
 
 				<div class="col-sm-10 offset-sm-1">
 
-					<sf:form id="hourSelect" action="hour/edit/search" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-
-					</sf:form>
-
 					<table class="table table-striped table-dark">
 						<thead>
 						<tr>
 
+							<td ><s:message code="register.name"/></td>
+							<td ><s:message code="register.lastName"/></td>
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 						</tr>
 						</thead>
 						<tbody>
 						<c:forEach var="u" items="${hourList }">
-							<sf:form id="${u.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${u.id_hours }" path="id_hours"/>
 								<tr>
-
+									<td ><c:out value="${u.user.name }" /></td>
+									<td ><c:out value="${u.user.lastName }" /></td>
 									<td ><c:out value="${u.hour_from }" /></td>
 									<td ><c:out value="${u.hour_to }" /></td>
-									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
 								</tr>
-							</sf:form>
 						</c:forEach>
 						</tbody>
 					</table>

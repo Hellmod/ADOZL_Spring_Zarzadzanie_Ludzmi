@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title><s:message code="menu.hour"/></title>
+	<title><s:message code="menu.schedule"/></title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,17 +32,13 @@
 		<div class="container">
 
 			<header>
-				<h1><s:message code="menu.hour" /></h1>
+				<h1><s:message code="menu.schedule" /></h1>
 				<p><c:out value="${message }" /></p>
 			</header>
 
 			<div class="row">
 
-				<div class="col-sm-10 offset-sm-1">
-
-					<sf:form id="hourSelect" action="hour/edit/search" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-
-					</sf:form>
+				<div class="col-sm-12 ">
 
 					<table class="table table-striped table-dark">
 						<thead>
@@ -50,17 +46,20 @@
 
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
+							<td ><s:message code="places.description"/></td>
+							<td ><s:message code="places.address"/></td>
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="u" items="${hourList }">
-							<sf:form id="${u.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${u.id_hours }" path="id_hours"/>
+						<c:forEach var="u" items="${scheduleList }">
+							<sf:form id="${u.id_schedule}" action="schedule/edit" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
+								<sf:hidden value="${u.id_schedule }" path="id_schedule"/>
 								<tr>
 
 									<td ><c:out value="${u.hour_from }" /></td>
 									<td ><c:out value="${u.hour_to }" /></td>
-									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
+									<td ><c:out value="${u.places.description }" /></td>
+									<td ><a href="<c:out value="${u.places.address_google }"/>" target="_blank"><s:message code="places.lokalizacja"/></a></td>
 								</tr>
 							</sf:form>
 						</c:forEach>
@@ -82,7 +81,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <script>
-	document.getElementById("allhour").classList.add("active");
+	document.getElementById("allschedule").classList.add("active");
 </script>
 </body>
 </html>

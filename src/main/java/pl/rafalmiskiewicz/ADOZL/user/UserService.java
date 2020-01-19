@@ -10,4 +10,5 @@ public interface UserService {
 
     public void updateUserProfile(String newName, String newLastName, String newEmail, int id);
 
+    User findUserById(int id_user);
 }

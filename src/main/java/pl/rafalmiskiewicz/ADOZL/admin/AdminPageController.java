@@ -9,7 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.rafalmiskiewicz.ADOZL.hours.Hour;
+import pl.rafalmiskiewicz.ADOZL.hours.HourService;
+import pl.rafalmiskiewicz.ADOZL.places.PlacesService;
+import pl.rafalmiskiewicz.ADOZL.schedule.Schedule;
+import pl.rafalmiskiewicz.ADOZL.schedule.ScheduleService;
 import pl.rafalmiskiewicz.ADOZL.user.User;
+import pl.rafalmiskiewicz.ADOZL.user.UserService;
+import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -28,6 +35,19 @@ public class AdminPageController {
 
     @Autowired
     private MessageSource messageSource;
+
+    @Autowired
+    private HourService hourService;
+
+    @Autowired
+    private ScheduleService scheduleService;
+
+    @Autowired
+    private PlacesService placesService;
+
+    @Autowired
+    private UserService userService;
+
 
     @GET
     @RequestMapping(value = "/admin/users/{page}")
@@ -78,6 +98,39 @@ public class AdminPageController {
         return "redirect:/admin/users/1";
     }
 
+
+    @POST
+    @RequestMapping(value = "/admin/hour")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
+    public String openHourNewMainPage(Model model) {
+        List<Hour> hourList = hourService.findAll();
+        for (Hour h:hourList) {
+            matchUsers(h);
+        }
+        model.addAttribute("hourList", hourList);
+        model.addAttribute(new Hour());
+        return "admin/hour";
+    }
+
+    @POST
+    @RequestMapping(value = "/admin/schedule")
+    @Secured(value = {"ROLE_ADMIN","ROLE_USER","ROLE_CONTRROLER"})
+    public String openScheduleNewMainPage(Model model) {
+        List<Schedule> scheduleList = scheduleService.findAll();
+        for (Schedule s:scheduleList) {
+            matchPlaces(s);
+            matchUsers(s);
+        }
+        model.addAttribute("scheduleList", scheduleList);
+        model.addAttribute(new Schedule());
+        return "admin/schedule";
+    }
+
+
+
+
+
+
     // Pobranie listy userów
     private Page<User> getAllUsersPageable(int page) {
         Page<User> pages = adminService.findAll(PageRequest.of(page, ELEMENTS));
@@ -106,5 +159,18 @@ public class AdminPageController {
         activityMap.put(1, messageSource.getMessage("word.tak", null, locale));
         return activityMap;
     }
+
+    void matchPlaces(Schedule schedule){
+        schedule.setPlaces(placesService.findPlacesById(schedule.getId_places()));
+    }
+
+    void matchUsers(Hour hour){
+        hour.setUser(userService.findUserById(hour.getId_user()));
+    }
+
+    void matchUsers(Schedule schedule){
+        schedule.setUser(userService.findUserById(schedule.getId_user()));
+    }
+
 
 }

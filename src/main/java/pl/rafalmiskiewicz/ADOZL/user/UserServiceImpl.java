@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -48,5 +49,11 @@ public class UserServiceImpl implements UserService {
     public void updateUserProfile(String newName, String newLastName, String newEmail, int id) {
         userRepository.updateUserProfile(newName, newLastName, newEmail, id);
     }
+
+    @Override
+    public User findUserById(int id_user) {
+        return (User) userRepository.findById(id_user);
+    }
+
 
 }

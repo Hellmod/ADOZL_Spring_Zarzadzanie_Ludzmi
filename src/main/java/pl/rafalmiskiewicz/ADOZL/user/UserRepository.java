@@ -5,10 +5,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+    public User findById(int id);
 
     public User findByEmail(String email);
 
