@@ -51,7 +51,6 @@ public class HoursPageController {
     @RequestMapping(value = "/hour/edit")
     @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String getHourIdToEditNew(Hour hour, Model model) {
-        //ToDo wyświetlenie godzin do edycji
 
         System.out.println(hour);
         hour=hourService.findHourById(hour.getId_hours());
@@ -128,7 +127,7 @@ public class HoursPageController {
         } else {
             hourService.updateHour(hour);
 
-            model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
+            model.addAttribute("message", messageSource.getMessage("hour.edit.success", null, locale));
             model.addAttribute("hour", new Hour());
             returnPage = "hour/edithour";
         }

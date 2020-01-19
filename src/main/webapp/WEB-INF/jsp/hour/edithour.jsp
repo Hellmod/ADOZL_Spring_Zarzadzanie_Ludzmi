@@ -44,13 +44,13 @@
 						<sf:hidden path="id_hours"/>
 						<div class="form-group">
 							<label for="hour_from_string"><s:message code="hour.hour_from"/></label>
-							<input name="hour_from_string" type="text" class="form-control" id="hour_from_string" placeholder="<s:message code="hour.hour_from.sample"/>">
+							<sf:input path="hour_from_string" class="form-control" />
 							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="hour_to_string"><s:message code="hour.hour_to"/></label>
-							<input name="hour_to_string" type="text" class="form-control" id="hour_to_string" placeholder="<s:message code="hour.hour_to.sample"/>">
+							<sf:input path="hour_to_string" class="form-control" />
 							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
 						</div>
 
