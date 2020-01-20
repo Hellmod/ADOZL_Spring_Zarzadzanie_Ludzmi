@@ -48,6 +48,7 @@
 							<td width="200" align="center"><b><s:message code="register.name"/></b></td>
 							<td width="200" align="center"><b><s:message code="register.lastName"/></b></td>
 							<td width="220" align="center"><b><s:message code="register.email"/></b></td>
+							<td width="220" align="center"><b><s:message code="register.ocena"/></b></td>
 							<td width="100" align="center"><b><s:message code="profil.czyAktywny"/></b></td>
 							<td width="100" align="center"><b><s:message code="profil.czyZwolniony"/></b></td>
 							<td width="200" align="center"><b><s:message code="profil.rola"/></b></td>
@@ -62,6 +63,7 @@
 									<td align="left"><c:out value="${u.name }" /></td>
 									<td align="left"><c:out value="${u.lastName }" /></td>
 									<td align="center"><c:out value="${u.email }" /></td>
+									<td align="center"><c:out value="${u.mark }" /></td>
 									<td align="center">
 										<c:choose>
 											<c:when test="${u.active == 1 }">

@@ -27,7 +27,7 @@
 </header>
 <main>
 
-	<section class="table">
+	<section class="adozl">
 
 		<div class="container">
 
@@ -84,7 +84,7 @@
 							<small class="form-text text-danger"><sf:errors path="active"/></small>
 						</div>
 
-						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>
+						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>

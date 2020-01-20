@@ -30,8 +30,8 @@
 
             <header>
 
-                <h1>Poznajmy zawodników</h1>
-                <p>W tej sekcji specjalnie dla Was prezentujemy sylwetki zawodników, których znamy z rywalizacji w konkursach pucharu świata oraz olimpijskich. Poznaj osiągnięcia, statystyki, a także ciekawostki na temat najbardziej rozpoznawalnych zawodników!</p>
+                <h1>Witaj!</h1>
+                <p>Jeśli jesteś zainteresowany pracą w naszej firmie jako osoba roznosząca ulotki zarejestruj się na tej stronie i wypełnij odpowiadające Ci godziny pracy. Po zatwierdzeniu przez naszą administrację twój harmonogram zostanie utworzony.</p>
                 <p><c:out value="${message }" /></p>
             </header>
 
