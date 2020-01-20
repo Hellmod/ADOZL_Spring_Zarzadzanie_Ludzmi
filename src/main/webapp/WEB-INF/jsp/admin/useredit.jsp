@@ -65,17 +65,23 @@
 							<sf:input class="form-control" path="email" readonly="true"/>
 							<small class="form-text text-danger"><sf:errors path="email"/></small>
                         </div>
+
+						<div class="form-group">
+							<label for="is_fired"><s:message code="profil.czyZwolniony" /></label>
+							<sf:select class="form-control" path="is_fired" items="${isFiredMap}"/>
+							<small class="form-text text-danger"><sf:errors path="is_fired"/></small>
+						</div>
                         
                         <div class="form-group">                            
                             <label for="nrRoli"><s:message code="profil.rola" /></label>
                             <sf:select class="form-control" path="nrRoli" items="${roleMap}"/>
-							<small class="form-text text-danger"><sf:errors path="email"/></small>
+							<small class="form-text text-danger"><sf:errors path="nrRoli"/></small>
                         </div>
 
 						<div class="form-group">
 							<label for="active"><s:message code="profil.czyAktywny"/></label>
 							<sf:select class="form-control" path="active" items="${activityMap}"/>
-							<small class="form-text text-danger"><sf:errors path="email"/></small>
+							<small class="form-text text-danger"><sf:errors path="active"/></small>
 						</div>
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>

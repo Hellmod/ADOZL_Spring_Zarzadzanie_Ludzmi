@@ -13,6 +13,7 @@
 					<li class="nav-item">
 						<a id="index" class="nav-link"  href="/"> <s:message code="menu.mainPage"/> </a>
 					</li>
+
 <sec:authorize access="isAuthenticated()">
 					<li class="nav-item dropdown">
 						<a id="allhour" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> <s:message code="menu.hour"/> </a>

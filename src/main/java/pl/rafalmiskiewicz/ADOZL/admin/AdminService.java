@@ -14,5 +14,5 @@ public interface AdminService {
 
     User findUserById(int id);
 
-    void updateUser(int id, int nrRoli, int activity);
+    void updateUser(int id, int nrRoli, int activity, boolean is_fired);
 }

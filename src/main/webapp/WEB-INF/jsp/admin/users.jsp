@@ -49,6 +49,7 @@
 							<td width="200" align="center"><b><s:message code="register.lastName"/></b></td>
 							<td width="220" align="center"><b><s:message code="register.email"/></b></td>
 							<td width="100" align="center"><b><s:message code="profil.czyAktywny"/></b></td>
+							<td width="100" align="center"><b><s:message code="profil.czyZwolniony"/></b></td>
 							<td width="200" align="center"><b><s:message code="profil.rola"/></b></td>
 						</tr>
 						</thead>
@@ -68,6 +69,16 @@
 											</c:when>
 											<c:otherwise>
 												<font color="red"><s:message code="word.nie"/></font>
+											</c:otherwise>
+										</c:choose>
+									</td>
+									<td align="center">
+										<c:choose>
+											<c:when test="${u.is_fired == false }">
+												<font color="green"><s:message code="word.zatrudniony"/></font>
+											</c:when>
+											<c:otherwise>
+												<font color="red"><s:message code="word.zwolniony"/></font>
 											</c:otherwise>
 										</c:choose>
 									</td>

@@ -38,8 +38,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void updateUser(int id, int nrRoli, int activity) {
-        adminRepository.updateActivationUser(activity, id);
+    public void updateUser(int id, int nrRoli, int activity, boolean is_fired) {
+        adminRepository.updateActivationUser(activity,is_fired, id);
         adminRepository.updateRoleUser(nrRoli, id);
     }
 }

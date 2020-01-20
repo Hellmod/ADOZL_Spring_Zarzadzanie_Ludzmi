@@ -78,15 +78,23 @@ public class AdminPageController {
         Map<Integer, String> activityMap = new HashMap<Integer, String>();
         activityMap = prepareActivityMap();
 
+        Map<Integer, String> isFiredMap = new HashMap<Integer, String>();
+        isFiredMap = prepareFiredMap();
+        
+        
+
         int rola = user.getRoles().iterator().next().getId();
         user.setNrRoli(rola);
 
         model.addAttribute("roleMap", roleMap);
         model.addAttribute("activityMap", activityMap);
+        model.addAttribute("isFiredMap", isFiredMap);
         model.addAttribute("user", user);
 
         return "admin/useredit";
     }
+
+
 
     @POST
     @RequestMapping(value = "/admin/updateuser/{id}")
@@ -94,7 +102,8 @@ public class AdminPageController {
     public String updateUser(@PathVariable("id") int id, User user) {
         int nrRoli = user.getNrRoli();
         int czyActive = user.getActive();
-        adminService.updateUser(id, nrRoli, czyActive);
+        boolean is_fired = user.getIs_fired();
+        adminService.updateUser(id, nrRoli, czyActive,is_fired);
         return "redirect:/admin/users/1";
     }
 
@@ -158,6 +167,14 @@ public class AdminPageController {
         activityMap.put(0, messageSource.getMessage("word.nie", null, locale));
         activityMap.put(1, messageSource.getMessage("word.tak", null, locale));
         return activityMap;
+    }
+
+    private Map<Integer, String> prepareFiredMap() {
+        Locale locale = Locale.getDefault();
+        Map<Integer, String> isFiredMap = new HashMap<Integer, String>();
+        isFiredMap.put(0, messageSource.getMessage("word.zatrudniony", null, locale));
+        isFiredMap.put(1, messageSource.getMessage("word.zwolniony", null, locale));
+        return isFiredMap;
     }
 
     void matchPlaces(Schedule schedule){

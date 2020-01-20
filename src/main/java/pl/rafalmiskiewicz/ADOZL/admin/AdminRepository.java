@@ -14,10 +14,11 @@ public interface AdminRepository extends JpaRepository<User, Integer> {
     User findUserById(int id);
 
     @Modifying
-    @Query("UPDATE User u SET u.active = :intActive WHERE u.id= :id")
-    void updateActivationUser(@Param("intActive") int active, @Param("id") int id);
+    @Query("UPDATE User u SET u.active = :intActive, u.is_fired = :is_fired WHERE u.id= :id")
+    void updateActivationUser(@Param("intActive") int active, @Param("is_fired") boolean is_fired, @Param("id") int id);
 
     @Modifying
     @Query(value = "UPDATE user_role r SET r.id_role = :roleId WHERE r.id_user= :id", nativeQuery = true)
     void updateRoleUser(@Param("roleId") int nrRoli, @Param("id") int id);
+
 }
