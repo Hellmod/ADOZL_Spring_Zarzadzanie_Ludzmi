@@ -34,6 +34,18 @@ public class Hour {
     @Transient
     private User user;
 
+    @Transient
+    private String onlyHour_from_string;
+
+    @Transient
+    private String onlyHour_to_string;
+
+    @Transient
+    private String onlyDate_from_string;
+
+    @Transient
+    private String onlyDate_to_string;
+
 
     public int getId_hours() {
         return id_hours;
@@ -93,6 +105,43 @@ public class Hour {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getOnlyHour_from_string() {
+        return onlyHour_from_string;
+    }
+
+    public void setOnlyHour_from_string(String onlyHour_from_string) {
+        this.onlyHour_from_string = onlyHour_from_string;
+    }
+
+    public String getOnlyHour_to_string() {
+        return onlyHour_to_string;
+    }
+
+    public void setOnlyHour_to_string(String onlyHour_to_string) {
+        this.onlyHour_to_string = onlyHour_to_string;
+    }
+
+    public String getOnlyDate_from_string() {
+        return onlyDate_from_string;
+    }
+
+    public void setOnlyDate_from_string(String onlyDate_from_string) {
+        this.onlyDate_from_string = onlyDate_from_string;
+    }
+
+    public String getOnlyDate_to_string() {
+        return onlyDate_to_string;
+    }
+
+    public void setOnlyDate_to_string(String onlyDate_to_string) {
+        this.onlyDate_to_string = onlyDate_to_string;
+    }
+
+    public void  divdedDateToString(){
+        setHour_from_string(getOnlyDate_from_string()+" "+getOnlyHour_from_string()+":00");
+        setHour_to_string(getOnlyDate_from_string()+" "+getOnlyHour_to_string()+":00");
     }
 
     public void stringToDate() throws ParseException {

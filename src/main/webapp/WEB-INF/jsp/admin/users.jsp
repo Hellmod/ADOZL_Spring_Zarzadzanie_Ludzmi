@@ -107,7 +107,7 @@
 							<td colspan="3" width="300" align="left">
 								<s:message code="info.page"/> ${currentPage} <s:message code="info.from"/> ${totalPages}
 							</td>
-							<td colspan="5" align="right">
+							<td colspan="7" align="right">
 				
 								<c:if test="${currentPage > 1}">
 									<input type="button"

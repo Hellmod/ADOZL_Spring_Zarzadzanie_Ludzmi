@@ -81,6 +81,7 @@ public class HoursPageController {
     public String registerHour(Hour hour,  BindingResult result, Model model, Locale locale) {
         String returnPage = null;
         try {
+            hour.divdedDateToString();
             hour.stringToDate();
         } catch (ParseException e) {
             e.printStackTrace();

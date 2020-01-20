@@ -43,16 +43,16 @@
 					<sf:form id="hourForm" action="inserthour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
 
 						<div class="form-group">
+
+
+							<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" >
 							<label for="hour_from_string"><s:message code="hour.hour_from"/></label>
-							<input name="hour_from_string" type="text" class="form-control" id="hour_from_string" placeholder="<s:message code="hour.hour_from.sample"/>">
-							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
+							<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" >
+							<label for="hour_to_string"><s:message code="hour.hour_to"/></label>
+							<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" >
+
 						</div>
 
-						<div class="form-group">
-							<label for="hour_to_string"><s:message code="hour.hour_to"/></label>
-							<input name="hour_to_string" type="text" class="form-control" id="hour_to_string" placeholder="<s:message code="hour.hour_to.sample"/>">
-							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
-						</div>
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='/'"><s:message code="button.cancel" /></button>
