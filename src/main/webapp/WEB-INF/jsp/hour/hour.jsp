@@ -40,10 +40,6 @@
 
 				<div class="col-sm-10 offset-sm-1">
 
-					<sf:form id="hourSelect" action="hour/edit/search" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-
-					</sf:form>
-
 					<table class="table table-striped table-dark">
 						<thead>
 						<tr>

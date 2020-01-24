@@ -14,7 +14,7 @@
 						<a id="index" class="nav-link"  href="/"> <s:message code="menu.mainPage"/> </a>
 					</li>
 
-<sec:authorize access="isAuthenticated()">
+<sec:authorize access="hasRole('ROLE_USER')">
 					<li class="nav-item dropdown">
 						<a id="allhour" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> <s:message code="menu.hour"/> </a>
 
@@ -47,9 +47,11 @@
 					</li>
 
 </sec:authorize>
+<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
 						<a id="profil" class="nav-link" href="/profil"> <s:message code="menu.profil"/> </a>
 					</li>
+</sec:authorize>
 				</ul>
 <div class="navbar-nav mrl-auto">
 <sec:authorize access="isAuthenticated()">
