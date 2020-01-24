@@ -1,7 +1,7 @@
 body
 {
-	background-color: #2F3336;
-	color: #efefef;
+	background-color: #ffffff;
+	color: #000000;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
 }
@@ -10,7 +10,7 @@ h1
 {
 	font-size: 36px;
 	font-weight: 400;
-	color: #C0D06F;
+	color: #000000;
 	margin: 20px;
 }
 
@@ -40,6 +40,10 @@ h1
 	min-height: 57px;
 }
 
+.bg-adozl
+{
+	background-color: #91a33b !important;
+}
 
 
 

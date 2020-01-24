@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-table navbar-expand-lg">
+<nav class="navbar navbar-dark bg-adozl navbar-expand-lg">
 
 			<a class="navbar-brand" href="/"><img src="/resources/images/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> <s:message code="menu.adozl"/></a>
 
