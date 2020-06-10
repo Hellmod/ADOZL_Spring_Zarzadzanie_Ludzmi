@@ -28,7 +28,7 @@ public class ChangePasswordValidator implements Validator {
     public void checkPasswords(String newPass, Errors errors) {
 
         if (!newPass.equals(null)) {
-            boolean isMatch = AppdemoUtils.checkEmailOrPassword(AdozlConstants.passwordPattern, newPass);
+            boolean isMatch = true;//AppdemoUtils.checkEmailOrPassword(AdozlConstants.passwordPattern, newPass);
             if (!isMatch) {
                 errors.rejectValue("newPassword", "error.userPasswordIsNotMatch");
             }
