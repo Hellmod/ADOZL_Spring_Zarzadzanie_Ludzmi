@@ -12,9 +12,8 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/resources/css/main.css">
+	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 
 	<!--[if lt IE 9]>
@@ -43,35 +42,47 @@
 
 						<div class="form-group">
 							<label for="name"><s:message code="register.name"/></label>
-							<input name="name" type="text" class="form-control" id="name" placeholder="<s:message code="register.name"/>"">
+							<input name="name" type="text" class="form-control" id="name" placeholder="<s:message code="register.name"/>">
+							<i class="fa fa-check complete" aria-hidden="true"></i>
 							<small id="nameHelp" class="form-text text-danger"><sf:errors path="name"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="lastName"><s:message code="register.lastName"/></label>
 							<input name="lastName" type="text" class="form-control" id="lastName" placeholder="<s:message code="register.lastName"/>">
-							<small class="form-text text-danger"><sf:errors path="lastName"/></small>
+							<i class="fa fa-check complete" aria-hidden="true"></i>
+							<small id="lastNameHelp" class="form-text text-danger"><sf:errors path="lastName"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="telephone"><s:message code="register.telephone"/></label>
 							<input name="telephone" type="text" class="form-control" id="telephone" placeholder="<s:message code="register.telephone"/>">
+							<i class="fa fa-check complete" aria-hidden="true"></i>
 							<small class="form-text text-danger"><sf:errors path="telephone"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="email"><s:message code="register.email" /></label>
 							<input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-							<small class="form-text text-danger"><sf:errors path="email"/></small>
+							<i class="fa fa-check complete" aria-hidden="true"></i>
+							<small id="emailHelp" class="form-text text-danger"><sf:errors path="email"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="password"><s:message code="register.password" /></label>
 							<input name="password" type="password" class="form-control" id="password" placeholder="Password">
-							<small class="form-text text-danger"><sf:errors path="password"/></small>
+							<i class="fa fa-check complete" aria-hidden="true"></i>
+							<small id="passwordHelp" class="form-text text-danger"><sf:errors path="password"/></small>
 						</div>
 
-						<button type="submit" class="btn btn-primary"><s:message code="button.register" /></button>
+						<div class="form-group">
+							<label >Potwierdź hasło</label>
+							<input id="passwordConfirm" class="form-control" type="password">
+							<i class="fa fa-check complete" aria-hidden="true"></i>
+							<small id="passwordConfirmdHelp" class="form-text text-danger"></small>
+						</div>
+
+						<button id="submit" type="submit" class="btn btn-primary" disabled><s:message code="button.register" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
@@ -81,7 +92,6 @@
 
 		</div>
 	</section>
-
 </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -89,9 +99,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 <script src="/resources/js/bootstrap.min.js"></script>
-
+<script src="/resources/js/registerValidation.js"></script>
 <script>
 	document.getElementById("register").classList.add("active");
 </script>
+
 </body>
 </html>
