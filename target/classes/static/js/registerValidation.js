@@ -46,10 +46,14 @@ document.getElementById('lastName').onblur = function() {
 document.getElementById('email').onblur = function() {
     let status = document.getElementById('email').value;
     if (status.length < 1) {
-        document.getElementById('emailHelp').innerHTML = 'Adres email jest nieprawidłowy';
+        document.getElementById('emailHelp').innerHTML = 'Adres email nie może być puste';
         checkmark[2].classList.remove('active');
         disableButton();
-    } else {
+    }else if (!validateEmail(status)) {
+        document.getElementById('alert-email').innerHTML = 'Adres email jest nieprawidłowy ';
+        checkmark[2].classList.remove('active');
+        disableButton();
+    }  else {
         document.getElementById('emailHelp').innerHTML = '';
         checkmark[2].classList.add('active');
         enableButton();
