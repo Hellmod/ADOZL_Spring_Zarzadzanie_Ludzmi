@@ -20,7 +20,7 @@
 </head>
 <body>
 <header>
-<%@include file="/WEB-INF/incl/menuNew.app" %>
+    <%@include file="/WEB-INF/incl/menuNew.app" %>
 </header>
 <main>
 
