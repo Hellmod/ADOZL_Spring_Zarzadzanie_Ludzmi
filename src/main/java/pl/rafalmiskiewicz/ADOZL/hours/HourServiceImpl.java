@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.rafalmiskiewicz.ADOZL.schedule.Schedule;
 import pl.rafalmiskiewicz.ADOZL.user.Role;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @Transactional
 public class HourServiceImpl implements HourService {
 
+    @Qualifier("hourRepository")
     @Autowired
     private HourRepository hourRepository;
 
@@ -28,6 +30,11 @@ public class HourServiceImpl implements HourService {
     @Override
     public Hour findHourById(int id) {
         return (Hour) hourRepository.findById(id);
+    }
+
+    @Override
+    public List<Hour> findHourBySchedule(Schedule schedule) {
+        return hourRepository.findAllBySchedule(schedule.getId_role());
     }
 
     @Override

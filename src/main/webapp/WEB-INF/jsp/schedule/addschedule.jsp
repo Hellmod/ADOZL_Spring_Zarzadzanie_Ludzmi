@@ -35,29 +35,66 @@
 				<h1><s:message code="menu.hourAdd" /></h1>
 				<p><c:out value="${message }" /></p>
 			</header>
-			
+
 			<div class="row">
 
 
 				<div class="col-sm-6 offset-sm-3">
-					<sf:form id="hourForm" action="inserthour" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
+
+					<sf:form id="sxheduleForm" action="addschedule" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
 
 						<div class="form-group">
 							<label for="hour_from_string"><s:message code="schedule.hour_from"/></label>
-							<input name="hour_from_string" type="text" class="form-control" id="hour_from_string" placeholder="<s:message code="schedule.hour_from.sample"/>">
+							<input name="hour_from_string" type="time" class="form-control" id="hour_from_string" placeholder="<s:message code="schedule.hour_from.sample"/>">
 							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="hour_to_string"><s:message code="schedule.hour_to"/></label>
-							<input name="hour_to_string" type="text" class="form-control" id="hour_to_string" placeholder="<s:message code="schedule.hour_to.sample"/>">
+							<input name="hour_to_string" type="time" class="form-control" id="hour_to_string" placeholder="<s:message code="schedule.hour_to.sample"/>">
 							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
 						</div>
 
-						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
+						<div class="form-group">
+							<label for="id_role"><s:message code="profil.rola" /></label>
+							<sf:select class="form-control" path="id_role" items="${roleMap}"/>
+						</div>
+
+						<div class="form-group">
+							<label for="id_places"><s:message code="places.address" /></label>
+							<sf:select class="form-control" path="id_places" items="${placeMap}"/>
+						</div>
+
+						<button type="submit" class="btn btn-primary" value="save"><s:message code="button.save" /></button>
+						<button type="submit" class="btn btn-primary" name="search" value="search"><s:message code="button.search" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
+				</div>
+<%--dodaj margines pomiędzy tymi div--%>
+				<div class="col-sm-10 offset-sm-1">
+
+					<table class="table table-striped table-dark">
+						<thead>
+						<tr>
+
+							<td ><s:message code="register.name"/></td>
+							<td ><s:message code="register.lastName"/></td>
+							<td ><s:message code="hour.hour_from"/></td>
+							<td ><s:message code="hour.hour_to"/></td>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="u" items="${hourList }">
+							<tr>
+								<td ><c:out value="${u.user.name }" /></td>
+								<td ><c:out value="${u.user.lastName }" /></td>
+								<td ><c:out value="${u.hour_from }" /></td>
+								<td ><c:out value="${u.hour_to }" /></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
 				</div>
 
 			</div>

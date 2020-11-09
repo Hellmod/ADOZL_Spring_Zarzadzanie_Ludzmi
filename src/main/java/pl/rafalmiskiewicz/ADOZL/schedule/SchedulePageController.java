@@ -7,15 +7,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import pl.rafalmiskiewicz.ADOZL.hours.Hour;
+import pl.rafalmiskiewicz.ADOZL.hours.HourService;
 import pl.rafalmiskiewicz.ADOZL.places.PlacesService;
 import pl.rafalmiskiewicz.ADOZL.user.UserService;
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 
 @Controller
@@ -26,6 +32,9 @@ public class SchedulePageController {
 
     @Autowired
     private ScheduleService scheduleService;
+
+    @Autowired
+    private HourService hourService;
 
     @Autowired
     private UserService userService;
@@ -46,15 +55,35 @@ public class SchedulePageController {
         return "schedule/schedule";
     }
 
-    @GET
     @RequestMapping(value = "/schedule/addschedule")
     @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String addSchedule( Model model) {
+    public String addSchedule(Schedule schedule,Model model) {
+        Map<Integer, String> roleMap = new HashMap<Integer, String>();
+        roleMap = prepareRoleMap();
+        roleMap.remove(1);
 
-        Schedule h = new Schedule();
-        model.addAttribute("schedule", h);
+        Map<Integer, String> placeMap = new HashMap<Integer, String>();
+        placeMap = preparePlaceMap();
+
+        Schedule scheduleShow = new Schedule();
+
+        List<Hour> hourList = hourService.findAll();
+        for (Hour h:hourList) {
+            matchUsers(h);
+        }
+
+        model.addAttribute("hourList", hourList);
+        model.addAttribute("schedule", schedule);
+        model.addAttribute("roleMap", roleMap);
+        model.addAttribute("placeMap", placeMap);
 
         return "schedule/addschedule";
+    }
+
+    @RequestMapping(params = "search", method = RequestMethod.POST)
+    public String cancelUpdateUser(HttpServletRequest request) {
+        int i =2+2;
+        return "redirect:/users.html";
     }
 
     @POST
@@ -88,7 +117,7 @@ public class SchedulePageController {
 
     }
 
-
+/*
     @POST
     @RequestMapping(value = "/schedule/edit/updateschedule")
     @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
@@ -118,13 +147,37 @@ public class SchedulePageController {
         return returnPage;
 
 
-    }
+    }*/
 
 
     void matchPlaces(Schedule schedule){
         schedule.setPlaces(placesService.findPlacesById(schedule.getId_places()));
     }
 
+    void matchUsers(Schedule schedule){
+        schedule.setUser(userService.findUserById(schedule.getId_user()));
+    }
 
+    void matchUsers(Hour hour){
+        hour.setUser(userService.findUserById(hour.getId_user()));
+    }
+
+    public Map<Integer, String> prepareRoleMap() {
+        Locale locale = Locale.getDefault();
+        Map<Integer, String> roleMap = new HashMap<Integer, String>();
+        roleMap.put(1, messageSource.getMessage("word.admin", null, locale));
+        roleMap.put(2, messageSource.getMessage("word.user", null, locale));
+        roleMap.put(3, messageSource.getMessage("word.controller", null, locale));
+        return roleMap;
+    }
+
+    public Map<Integer, String> preparePlaceMap() {
+        Locale locale = Locale.getDefault();
+        Map<Integer, String> roleMap = new HashMap<Integer, String>();
+        roleMap.put(1, "Skrzyżowanie Szlak z Warszawską");
+        roleMap.put(2, "AGH Czarnowiejska przystanek");
+        roleMap.put(3,  "AGH UR");
+        return roleMap;
+    }
 
 }

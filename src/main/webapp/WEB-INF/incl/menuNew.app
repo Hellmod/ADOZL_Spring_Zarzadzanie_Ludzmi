@@ -43,8 +43,10 @@
 							<a id="Aschedule" class="dropdown-item" href="/admin/schedule"> <s:message code="menu.schedule"/> </a>
 							<a id="Ahour" class="dropdown-item" href="/admin/hour"> <s:message code="menu.hour"/> </a>
 						</div>
-
 					</li>
+					<li class="nav-item">
+                        <a id="schedule" class="nav-link" href="/schedule/addschedule"> <s:message code="menu.scheduleAdd"/> </a>
+                    </li>
 
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">

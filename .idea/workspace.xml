@@ -29,10 +29,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78d2a604-0b91-47c1-ab10-a1e8b9338b76" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="78d2a604-0b91-47c1-ab10-a1e8b9338b76" name="Default Changelist" comment="maven git dataSources">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADOZL.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ADOZL.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en_us.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en_us.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/incl/menuNew.app" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/incl/menuNew.app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/addschedul.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/addschedule.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/editschedul.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/editschedule.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en_us.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en_us.properties" afterDir="false" />
     </list>
     <list id="1d415526-7f46-482c-aa5a-98b1e84783f9" name="Revert &quot;Finall commiit&quot;" comment="Revert &quot;Finall commiit&quot;&#10;&#10;This reverts commit 38b18fde" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,11 +105,16 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -111,6 +127,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4915254" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -124,17 +141,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AdozlApplication (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AdozlApplicationTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ADOZL_Spring_Zarzadzanie_Ludzmi" />
       <extension name="coverage">
@@ -206,6 +212,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AdozlApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="ADOZL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.rafalmiskiewicz.ADOZL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.rafalmiskiewicz.ADOZL.AdozlApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.AdozlApplicationTests" />
       <item itemvalue="JUnit.HourTest.stringToDate" />
@@ -216,6 +237,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.AdozlApplication (1)" />
+        <item itemvalue="Spring Boot.AdozlApplication" />
         <item itemvalue="JUnit.HourTest.divdedDateToString" />
         <item itemvalue="JUnit.HourTest.stringToDate" />
         <item itemvalue="JUnit.AdozlApplicationTests" />
@@ -249,7 +271,17 @@
       <workItem from="1602260233289" duration="1201000" />
       <workItem from="1602267301042" duration="3986000" />
       <workItem from="1604232039779" duration="893000" />
+      <workItem from="1604787824395" duration="5755000" />
+      <workItem from="1604828996943" duration="2403000" />
     </task>
+    <task id="LOCAL-00001" summary="maven git dataSources">
+      <created>1604760731311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604760731311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,75 +292,131 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="maven git dataSources" />
+    <option name="LAST_COMMIT_MESSAGE" value="maven git dataSources" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="193" y="29" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604760639881">
+    <state x="792" y="375" key="#Other_File_Types" timestamp="1604763360806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="193" y="29" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604760639881" />
+    <state x="792" y="375" key="#Other_File_Types/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604763360806" />
+    <state x="569" y="243" width="916" height="705" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604790998654">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="569" y="243" width="916" height="705" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604790998654" />
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1602260465242" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604840414129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840414129" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1602270351836">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602270351836" />
-    <state width="1323" height="193" key="GridCell.Tab.0.bottom" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.0.bottom" timestamp="1604840312688">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.0.bottom/-1366.304.1366.728/0.0.1920.1040@-1366.304.1366.728" timestamp="1604787913870" />
+    <state width="1877" height="325" key="GridCell.Tab.0.bottom/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312688" />
     <state width="1323" height="193" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.0.center" timestamp="1602272882583">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.0.center" timestamp="1604840312688">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.0.center/-1366.304.1366.728/0.0.1920.1040@-1366.304.1366.728" timestamp="1604787913869" />
+    <state width="1877" height="325" key="GridCell.Tab.0.center/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312688" />
     <state width="1323" height="193" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602272882583" />
-    <state width="1323" height="193" key="GridCell.Tab.0.left" timestamp="1602272882583">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.0.left" timestamp="1604840312688">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.0.left/-1366.304.1366.728/0.0.1920.1040@-1366.304.1366.728" timestamp="1604787913869" />
+    <state width="1877" height="325" key="GridCell.Tab.0.left/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312688" />
     <state width="1323" height="193" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602272882583" />
-    <state width="1323" height="193" key="GridCell.Tab.0.right" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.0.right" timestamp="1604840312688">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1323" height="111" key="GridCell.Tab.0.right/-1366.304.1366.728/0.0.1920.1040@-1366.304.1366.728" timestamp="1604787913869" />
+    <state width="1877" height="325" key="GridCell.Tab.0.right/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312688" />
     <state width="1323" height="193" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.1.bottom" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.1.bottom" timestamp="1604840343805">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.bottom/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840343805" />
     <state width="1323" height="193" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.1.center" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.1.center" timestamp="1604840343805">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.center/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840343805" />
     <state width="1323" height="193" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.1.left" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.1.left" timestamp="1604840343804">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.left/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840343804" />
     <state width="1323" height="193" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.1.right" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.1.right" timestamp="1604840343805">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.right/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840343805" />
     <state width="1323" height="193" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.2.bottom" timestamp="1602272882586">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.2.bottom" timestamp="1604840312291">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.2.bottom/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312291" />
     <state width="1323" height="193" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602272882586" />
-    <state width="1323" height="193" key="GridCell.Tab.2.center" timestamp="1602272882585">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.2.center" timestamp="1604840312291">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.2.center/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312291" />
     <state width="1323" height="193" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602272882585" />
-    <state width="1323" height="193" key="GridCell.Tab.2.left" timestamp="1602272882584">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.2.left" timestamp="1604840312290">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.2.left/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312290" />
     <state width="1323" height="193" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602272882584" />
-    <state width="1323" height="193" key="GridCell.Tab.2.right" timestamp="1602272882586">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="325" key="GridCell.Tab.2.right" timestamp="1604840312291">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="325" key="GridCell.Tab.2.right/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604840312291" />
     <state width="1323" height="193" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602272882586" />
+    <state x="735" y="222" key="RollbackChangesDialog" timestamp="1604792949483">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="735" y="222" key="RollbackChangesDialog/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604792949483" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1604760735118">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604760735118" />
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1602267301999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602267301999" />
+    <state x="-1366" y="304" width="1382" height="815" key="dock-window-1" timestamp="1604847631675">
+      <screen x="-1366" y="304" width="1366" height="728" />
+    </state>
+    <state x="-1366" y="304" width="1382" height="815" key="dock-window-1/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604847631675" />
+    <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1604793230412">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="660" y="277" key="refactoring.ChangeSignatureDialog/-1366.304.1366.728/0.0.1920.1040@0.0.1920.1040" timestamp="1604793230412" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -337,6 +425,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HoursPageController.java</url>
           <line>81</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
