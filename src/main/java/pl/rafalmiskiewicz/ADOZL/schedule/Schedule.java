@@ -24,7 +24,7 @@ public class Schedule {
     private int id_schedule;
 
     @Column(name = "id_user")
-    private int id_user;
+    private Integer id_user;
 
     @Column(name = "id_role")
     private int id_role;
@@ -59,11 +59,13 @@ public class Schedule {
         this.id_schedule = id_schedules;
     }
 
-    public int getId_user() {
+    public Integer getId_user() {
         return id_user;
     }
 
-    public void setId_user(int id_user) { this.id_user = id_user; }
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
 
     public Date getHour_from() {
         return hour_from;

@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Repository("hourRepository")
-public interface HourRepository extends JpaRepository<Hour, Integer> {
+public interface HourRepository extends JpaRepository<Hour, Integer>{
 
     public Hour findById(int id);
 
@@ -26,6 +26,10 @@ public interface HourRepository extends JpaRepository<Hour, Integer> {
     @Query(value = "INSERT INTO `hours` (`id_hours`, `id_user`, `hour_from`, `hour_to`) VALUES (NULL, :id_user, :hour_from, :hour_to);", nativeQuery = true)
     public void insertHour(@Param("id_user") int id_user, @Param("hour_from") Date hour_from, @Param("hour_to") Date hour_to);
 
+/*
+    @Query(value = "SELECT * FROM hours WHERE (:idUser is null or hours.idUser = :idUser)", nativeQuery = true)
+    List<Hour> findAllFilter(@Param("idUser") Integer idUser);
+*/
 
     @Transactional
     @Modifying

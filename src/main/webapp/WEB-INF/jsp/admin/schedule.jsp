@@ -51,13 +51,13 @@
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="u" items="${scheduleList }">
+						<c:forEach var="user" items="${scheduleList }">
 								<tr>
-									<td ><c:out value="${u.user.name }" /></td>
-									<td ><c:out value="${u.user.lastName }" /></td>
-									<td ><c:out value="${u.hour_from }" /></td>
-									<td ><c:out value="${u.hour_to }" /></td>
-									<td ><c:out value="${u.places.description }" /></td>
+									<td ><c:out value="${user.user.name }" /></td>
+									<td ><c:out value="${user.user.lastName }" /></td>
+									<td ><c:out value="${user.hour_from }" /></td>
+									<td ><c:out value="${user.hour_to }" /></td>
+									<td ><c:out value="${user.places.description }" /></td>
 								</tr>
 						</c:forEach>
 						</tbody>

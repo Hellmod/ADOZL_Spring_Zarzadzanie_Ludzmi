@@ -2,12 +2,15 @@ package pl.rafalmiskiewicz.ADOZL.schedule;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 import pl.rafalmiskiewicz.ADOZL.hours.HourService;
 import pl.rafalmiskiewicz.ADOZL.places.PlacesService;
@@ -57,33 +60,38 @@ public class SchedulePageController {
 
     @RequestMapping(value = "/schedule/addschedule")
     @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String addSchedule(Schedule schedule,Model model) {
+    public String addSchedule(Schedule schedule,Model model,String action) {
         Map<Integer, String> roleMap = new HashMap<Integer, String>();
         roleMap = prepareRoleMap();
         roleMap.remove(1);
 
+        Hour ha = new Hour();
+        //ha.setId_user(1);
+
+       // List<Schedule>test= scheduleService.findAll(schedule);
+        List<Hour>testHour= hourService.findAllFilter(ha);
+
         Map<Integer, String> placeMap = new HashMap<Integer, String>();
         placeMap = preparePlaceMap();
-
-        Schedule scheduleShow = new Schedule();
 
         List<Hour> hourList = hourService.findAll();
         for (Hour h:hourList) {
             matchUsers(h);
         }
 
+        Map<Integer, String> userMap = new HashMap<Integer, String>();
+
+        for(Hour h:hourList){
+            userMap.put(h.getUser().getId(),h.getUser().getName()+" "+h.getUser().getLastName());
+        }
+
         model.addAttribute("hourList", hourList);
         model.addAttribute("schedule", schedule);
         model.addAttribute("roleMap", roleMap);
         model.addAttribute("placeMap", placeMap);
+        model.addAttribute("userMap", userMap);
 
         return "schedule/addschedule";
-    }
-
-    @RequestMapping(params = "search", method = RequestMethod.POST)
-    public String cancelUpdateUser(HttpServletRequest request) {
-        int i =2+2;
-        return "redirect:/users.html";
     }
 
     @POST
@@ -103,6 +111,7 @@ public class SchedulePageController {
         if (result.hasErrors()) {
             returnPage = "schedule/addschedule";
         } else {
+
             //scheduleRepository.save(schedule);
             //scheduleService.saveSchedule(schedule);
             scheduleService.saveScheduleNew(schedule);

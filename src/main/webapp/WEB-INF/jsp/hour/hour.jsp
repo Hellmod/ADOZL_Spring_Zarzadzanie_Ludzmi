@@ -49,13 +49,13 @@
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="u" items="${hourList }">
-							<sf:form id="${u.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${u.id_hours }" path="id_hours"/>
+						<c:forEach var="user" items="${hourList }">
+							<sf:form id="${user.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+								<sf:hidden value="${user.id_hours }" path="id_hours"/>
 								<tr>
 
-									<td ><c:out value="${u.hour_from }" /></td>
-									<td ><c:out value="${u.hour_to }" /></td>
+									<td ><c:out value="${user.hour_from }" /></td>
+									<td ><c:out value="${user.hour_to }" /></td>
 									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
 								</tr>
 							</sf:form>
