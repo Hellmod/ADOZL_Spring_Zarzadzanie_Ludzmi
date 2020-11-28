@@ -1,6 +1,7 @@
 package pl.rafalmiskiewicz.ADOZL.schedule;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 import pl.rafalmiskiewicz.ADOZL.hours.HourService;
 import pl.rafalmiskiewicz.ADOZL.places.PlacesService;
+import pl.rafalmiskiewicz.ADOZL.user.Role;
+import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.user.UserService;
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 
@@ -21,10 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -47,10 +47,10 @@ public class SchedulePageController {
 
     @POST
     @RequestMapping(value = "/schedule")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER","ROLE_CONTRROLER"})
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER", "ROLE_CONTRROLER"})
     public String openScheduleNewMainPage(Model model) {
         List<Schedule> scheduleList = scheduleService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
-        for (Schedule s:scheduleList) {
+        for (Schedule s : scheduleList) {
             matchPlaces(s);
         }
         model.addAttribute("scheduleList", scheduleList);
@@ -59,44 +59,109 @@ public class SchedulePageController {
     }
 
     @RequestMapping(value = "/schedule/addschedule")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String addSchedule(Schedule schedule,Model model,String action) {
-        Map<Integer, String> roleMap = new HashMap<Integer, String>();
-        roleMap = prepareRoleMap();
-        roleMap.remove(1);
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
+    public String addSchedule(Schedule schedule, Model model, String action, BindingResult result, Locale locale) {
+        String message = "";
+        if (action != null && action.equals("save")) {
+            try {
+                schedule.stringToDate();
+            } catch (ParseException e) {
+                message = "Musisz uzupełnić wszystkie dane!";
+                model.addAttribute("message", message);
+                e.printStackTrace();
+            }
+            if (schedule.getId_user() != null && schedule.getId_role() != null && schedule.getId_places() != null && schedule.getHour_from() != null && schedule.getHour_to() != null) {
+                if (!result.hasErrors()) {
+                    scheduleService.saveSchedule(schedule);
+                    model.addAttribute("message", messageSource.getMessage("schedule.add.success", null, locale));
+                    model.addAttribute("schedule", new Schedule());
+                }
+            } else {
+                message = "Musisz uzupełnić wszystkie dane!";
+                model.addAttribute("message", message);
+            }
+        } else {
+            Hour hour = new Hour();
+            if (schedule.getOnlyDate_from_string() != null) {
+                if (schedule.getHour_from_string().isEmpty())
+                    schedule.setHour_from_string("00:00");
+                if (schedule.getHour_to_string().isEmpty())
+                    schedule.setHour_to_string("23:59");
+                try {
+                    schedule.stringToDate();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
 
-        Hour ha = new Hour();
-        //ha.setId_user(1);
+            Map<Integer, String> roleMap = new HashMap<Integer, String>();
+            roleMap = prepareRoleMap();
+            roleMap.remove(1);
+            roleMap.put(null, "");
 
-       // List<Schedule>test= scheduleService.findAll(schedule);
-        List<Hour>testHour= hourService.findAllFilter(ha);
+            hour.setUser(new User());
+            hour.getUser().setRoles(new HashSet<>());
 
-        Map<Integer, String> placeMap = new HashMap<Integer, String>();
-        placeMap = preparePlaceMap();
+            Role r = new Role();
+            r.setId(schedule.getId_role());
+            r.setRole("ROLE_CONTROLLER");
 
-        List<Hour> hourList = hourService.findAll();
-        for (Hour h:hourList) {
-            matchUsers(h);
+            hour.getUser().getRoles().add(r);
+            hour.getUser().setId(schedule.getId_user());
+            hour.getUser().getRoles().contains(r);
+
+            List<Hour> hourList = hourService.findAll(hour);
+
+            if (schedule.getId_role() != null) {
+                CollectionUtils.filter(hourList, h -> equalsRole(((Hour) h).getUser().getRoles(), schedule.getId_role()));
+            }
+            if (schedule.getHour_from() != null) {
+                if (schedule.getHour_from_string().equals("00:00")) {
+                    CollectionUtils.filter(hourList, h -> ((Hour) h).getHour_from().after(schedule.getHour_from()));
+                } else {
+                    CollectionUtils.filter(hourList, h -> schedule.getHour_from().after(((Hour) h).getHour_from()));
+                }
+            }
+            if (schedule.getHour_to() != null) {
+                if (schedule.getHour_to_string().equals("23:59")) {
+                    CollectionUtils.filter(hourList, h -> ((Hour) h).getHour_to().before(schedule.getHour_to()));
+                } else {
+                    CollectionUtils.filter(hourList, h -> schedule.getHour_to().before(((Hour) h).getHour_to()));
+                }
+            }
+
+            Map<Integer, String> placeMap = new HashMap<Integer, String>();
+            placeMap = preparePlaceMap();
+            placeMap.put(null, "");
+
+
+            Map<Integer, String> userMap = new HashMap<Integer, String>();
+            for (Hour h : hourList) {
+                userMap.put(h.getUser().getId(), h.getUser().getName() + " " + h.getUser().getLastName());
+            }
+            userMap.put(null, "");
+
+            model.addAttribute("hourList", hourList);
+            model.addAttribute("roleMap", roleMap);
+            model.addAttribute("placeMap", placeMap);
+            model.addAttribute("userMap", userMap);
+
         }
-
-        Map<Integer, String> userMap = new HashMap<Integer, String>();
-
-        for(Hour h:hourList){
-            userMap.put(h.getUser().getId(),h.getUser().getName()+" "+h.getUser().getLastName());
-        }
-
-        model.addAttribute("hourList", hourList);
         model.addAttribute("schedule", schedule);
-        model.addAttribute("roleMap", roleMap);
-        model.addAttribute("placeMap", placeMap);
-        model.addAttribute("userMap", userMap);
-
         return "schedule/addschedule";
+    }
+
+    private boolean equalsRole(Set<Role> roles, Integer idRole) {
+        for (Role role : roles) {
+            if (role.getId() == idRole)
+                return true;
+        }
+        return false;
     }
 
     @POST
     @RequestMapping(value = "/schedule/insertschedule")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     public String registerSchedule(Schedule schedule, BindingResult result, Model model, Locale locale) {
         String returnPage = null;
         try {
@@ -126,48 +191,15 @@ public class SchedulePageController {
 
     }
 
-/*
-    @POST
-    @RequestMapping(value = "/schedule/edit/updateschedule")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String editSchedule(Schedule schedule, BindingResult result, Model model, Locale locale) {
-
-        String returnPage = null;
-        try {
-            schedule.stringToDate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        //schedule.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
-        //new ScheduleAddValidator().validate(schedule, result);
-
-
-        if (result.hasErrors()) {
-            returnPage = "schedule/editschedule";
-        } else {
-            scheduleService.updateSchedule(schedule);
-
-            model.addAttribute("message", messageSource.getMessage("schedule.add.success", null, locale));
-            model.addAttribute("schedule", new Schedule());
-            returnPage = "schedule/editschedule";
-        }
-
-        return returnPage;
-
-
-    }*/
-
-
-    void matchPlaces(Schedule schedule){
+    void matchPlaces(Schedule schedule) {
         schedule.setPlaces(placesService.findPlacesById(schedule.getId_places()));
     }
 
-    void matchUsers(Schedule schedule){
+    void matchUsers(Schedule schedule) {
         schedule.setUser(userService.findUserById(schedule.getId_user()));
     }
 
-    void matchUsers(Hour hour){
+    void matchUsers(Hour hour) {
         hour.setUser(userService.findUserById(hour.getId_user()));
     }
 
@@ -185,7 +217,7 @@ public class SchedulePageController {
         Map<Integer, String> roleMap = new HashMap<Integer, String>();
         roleMap.put(1, "Skrzyżowanie Szlak z Warszawską");
         roleMap.put(2, "AGH Czarnowiejska przystanek");
-        roleMap.put(3,  "AGH UR");
+        roleMap.put(3, "AGH UR");
         return roleMap;
     }
 

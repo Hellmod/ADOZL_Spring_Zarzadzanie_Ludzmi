@@ -1,11 +1,14 @@
 package pl.rafalmiskiewicz.ADOZL.hours;
 
+import pl.rafalmiskiewicz.ADOZL.user.Role;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -16,8 +19,8 @@ public class Hour {
     @Column(name = "id_hours")
     private Integer id_hours;
 
-    @Column(name = "id_user")
-    private Integer id_user;
+/*    @Column(name = "id_user")
+    private Integer id_user;*/
 
     @Column(name = "hour_from")
     private Date hour_from;
@@ -25,14 +28,15 @@ public class Hour {
     @Column(name = "hour_to")
     private Date hour_to;
 
+    @ManyToOne
+    @JoinColumn(name="id_user", nullable=false)
+    private User user;
+
     @Transient
     private String hour_from_string;
 
     @Transient
     private String hour_to_string;
-
-    @Transient
-    private User user;
 
     @Transient
     private String onlyHour_from_string;
@@ -46,7 +50,6 @@ public class Hour {
     @Transient
     private String onlyDate_to_string;
 
-
     public Integer getId_hours() {
         return id_hours;
     }
@@ -56,11 +59,17 @@ public class Hour {
     }
 
     public Integer getId_user() {
-        return id_user;
+        return user.getId();
     }
 
     public void setId_user(Integer id_user) {
-        this.id_user = id_user;
+        this.user.setId(id_user);
+    }
+
+    public void setUser_role(Role id_role) {
+        Set<Role> a =  new HashSet<>();
+        a.add(id_role);
+        this.user.setRoles(a);
     }
 
     public Date getHour_from() {
@@ -139,9 +148,9 @@ public class Hour {
         this.onlyDate_to_string = onlyDate_to_string;
     }
 
-    public void  divdedDateToString(){
-        setHour_from_string(getOnlyDate_from_string()+" "+getOnlyHour_from_string()+":00");
-        setHour_to_string(getOnlyDate_from_string()+" "+getOnlyHour_to_string()+":00");
+    public void divdedDateToString() {
+        setHour_from_string(getOnlyDate_from_string() + " " + getOnlyHour_from_string() + ":00");
+        setHour_to_string(getOnlyDate_from_string() + " " + getOnlyHour_to_string() + ":00");
     }
 
     public void stringToDate() throws ParseException {

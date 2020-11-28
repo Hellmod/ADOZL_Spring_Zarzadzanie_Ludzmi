@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface HourService {
     List<Hour> findAll();
+
+    List<Hour> findAll(Hour hour);
+
     List<Hour> findAllFilter(Hour hour);
     Hour findHourById(int id);
     List<Hour> findAllByUserId(int id);

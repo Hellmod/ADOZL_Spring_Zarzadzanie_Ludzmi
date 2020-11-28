@@ -12,7 +12,7 @@ public class User {
     //@GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private int id;
+    public Integer id;
 
     @Column(name = "email")
     @NotNull
@@ -32,15 +32,15 @@ public class User {
 
     @Column(name = "active")
     @NotNull
-    private int active;
+    private Integer active;
 
     @Column(name = "telephone")
     @NotNull
-    private int telephone;
+    private Integer telephone;
 
     @Column(name = "mark")
     @NotNull
-    private int mark;
+    private Integer mark;
 
     @Column(name = "is_fired")
     @NotNull
@@ -62,13 +62,6 @@ public class User {
 
 
     //gettery i settery
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -102,13 +95,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getActive() {
-        return active;
-    }
-
-    public void setActive(int active) {
-        this.active = active;
-    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -118,13 +104,6 @@ public class User {
         this.roles = roles;
     }
 
-    public int getNrRoli() {
-        return nrRoli;
-    }
-
-    public void setNrRoli(int nrRoli) {
-        this.nrRoli = nrRoli;
-    }
 
     public String getNewPassword() {
         return newPassword;
@@ -132,14 +111,6 @@ public class User {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
-    }
-
-    public int getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(int telephone) {
-        this.telephone = telephone;
     }
 
     public Boolean getIs_fired() {
@@ -158,11 +129,43 @@ public class User {
         this.is_new = is_new;
     }
 
-    public int getMark() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getActive() {
+        return active;
+    }
+
+    public void setActive(Integer active) {
+        this.active = active;
+    }
+
+    public Integer getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(Integer telephone) {
+        this.telephone = telephone;
+    }
+
+    public Integer getMark() {
         return mark;
     }
 
-    public void setMark(int mark) {
+    public void setMark(Integer mark) {
         this.mark = mark;
+    }
+
+    public int getNrRoli() {
+        return nrRoli;
+    }
+
+    public void setNrRoli(int nrRoli) {
+        this.nrRoli = nrRoli;
     }
 }

@@ -43,7 +43,6 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public void saveSchedule(Schedule schedule) {
-
         scheduleRepository.save(schedule);
     }
 

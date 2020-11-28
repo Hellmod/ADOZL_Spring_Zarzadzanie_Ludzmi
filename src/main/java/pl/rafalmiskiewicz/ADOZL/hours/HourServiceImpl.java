@@ -5,15 +5,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.rafalmiskiewicz.ADOZL.schedule.Schedule;
+import pl.rafalmiskiewicz.ADOZL.user.Role;
+import pl.rafalmiskiewicz.ADOZL.user.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 @Service("hourService")
@@ -33,9 +36,23 @@ public class HourServiceImpl implements HourService {
     }
 
     @Override
+    public List<Hour> findAll(Hour hour) {
+        return hourRepository.findAll(Example.of(hour));
+
+    }
+
+    @Override
     public List<Hour> findAllFilter(Hour hour) {
-        Integer id = hour.getId_user();
+/*        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Hour> cq = cb.createQuery(Hour.class);
+        Metamodel m = em.getMetamodel();
+        EntityType<Hour> Pet_ = m.entity(Hour.class);
+
+        Root<Hour> pet = cq.from(Hour.class);
+        Join<Hour, User> owner = pet.join(Pet_.get);*/
+        Integer id = null;
         Date hourTo = hour.getHour_to();
+        Set<Role> roles = hour.getUser().getRoles();
 
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -43,6 +60,18 @@ public class HourServiceImpl implements HourService {
 
         Root<Hour> book = cq.from(Hour.class);
         List<Predicate> predicates = new ArrayList<>();
+        Root<Role> rolesC = cq.from(Role.class);
+        //---------
+/*
+        Metamodel m = em.getMetamodel();
+        EntityType<Hour> hourMetaModel = m.entity(Hour.class);
+
+        Join<Hour, User> owner = book.join(hourMetaModel.getSet("owners", User.class));
+
+*/
+
+//-----
+        //Join<Hour, User> owner = book.join();
 
         if (id != null) {
             predicates.add(cb.equal(book.get("id_user"), id));
@@ -50,8 +79,11 @@ public class HourServiceImpl implements HourService {
         if (hourTo != null) {
             predicates.add(cb.like(book.get("hour_to"), ">" + hourTo ));
         }
+        if (roles != null) {
+            predicates.add(cb.like(rolesC.get("id"), "=" + roles ));
+        }
         cq.where(predicates.toArray(new Predicate[0]));
-
+        //rpSubQ.select(cq);
         return em.createQuery(cq).getResultList();
     }
 
