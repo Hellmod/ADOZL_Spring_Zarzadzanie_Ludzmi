@@ -10,18 +10,17 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_role")
-    private int id;
+    private Integer id;
 
     @Column(name = "role")
     @NotNull
     private String role;
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,5 +32,13 @@ public class Role {
         this.role = role;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Role role = (Role) obj;
+        if(role.getId()==getId()||role.getRole()==getRole())
+            return true;
+        else
+            return false;
+    }
 
 }

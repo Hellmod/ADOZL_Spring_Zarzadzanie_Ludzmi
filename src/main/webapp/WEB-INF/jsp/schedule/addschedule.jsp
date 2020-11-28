@@ -44,15 +44,27 @@
 					<sf:form id="sxheduleForm" action="addschedule" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
 
 						<div class="form-group">
+							<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" value="<c:out value="${schedule.onlyDate_from_string}" />" >
 							<label for="hour_from_string"><s:message code="schedule.hour_from"/></label>
-							<input name="hour_from_string" type="time" class="form-control" id="hour_from_string" placeholder="<s:message code="schedule.hour_from.sample"/>">
+							<input value="<c:out value="${schedule.hour_from_string}" />" name="hour_from_string" type="time" class="form-control" id="hour_from_string" placeholder="<s:message code="schedule.hour_from.sample"/>">
 							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
 						</div>
 
 						<div class="form-group">
 							<label for="hour_to_string"><s:message code="schedule.hour_to"/></label>
-							<input name="hour_to_string" type="time" class="form-control" id="hour_to_string" placeholder="<s:message code="schedule.hour_to.sample"/>">
+							<input value="<c:out value="${schedule.hour_to_string}" />" name="hour_to_string" type="time" class="form-control" id="hour_to_string" placeholder="<s:message code="schedule.hour_to.sample"/>">
 							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
+						</div>
+
+<%--						<div class="form-group">
+							<label for="id_user"><s:message code="schedule.id_user"/></label>
+							<input value="<c:out value="${schedule.id_user}" />" name="hour_to_string" type="text" class="form-control" id="id_user" placeholder="<s:message code="schedule.id_user"/>">
+							<small class="form-text text-danger"><sf:errors path="id_user"/></small>
+						</div>--%>
+
+						<div class="form-group">
+							<label for="id_user"><s:message code="schedule.user" /></label>
+							<sf:select class="form-control" path="id_user" items="${userMap}"/>
 						</div>
 
 						<div class="form-group">
@@ -65,8 +77,8 @@
 							<sf:select class="form-control" path="id_places" items="${placeMap}"/>
 						</div>
 
-						<button type="submit" class="btn btn-primary" value="save"><s:message code="button.save" /></button>
-						<button type="submit" class="btn btn-primary" name="search" value="search"><s:message code="button.search" /></button>
+						<button type="submit" class="btn btn-primary" name="action" value="save"><s:message code="button.save" /></button>
+						<button type="submit" class="btn btn-primary" name="action" value="search"><s:message code="button.search" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='/'"><s:message code="button.cancel" /></button>
 
 					</sf:form>
@@ -77,20 +89,37 @@
 					<table class="table table-striped table-dark">
 						<thead>
 						<tr>
-
+							<td ><s:message code="hour.id_user"/></td>
 							<td ><s:message code="register.name"/></td>
 							<td ><s:message code="register.lastName"/></td>
+							<td ><s:message code="profil.rola"/></td>
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="u" items="${hourList }">
+						<c:forEach var="user" items="${hourList }">
 							<tr>
-								<td ><c:out value="${u.user.name }" /></td>
-								<td ><c:out value="${u.user.lastName }" /></td>
-								<td ><c:out value="${u.hour_from }" /></td>
-								<td ><c:out value="${u.hour_to }" /></td>
+								<td ><c:out value="${user.user.id }" /></td>
+								<td ><c:out value="${user.user.name }" /></td>
+								<td ><c:out value="${user.user.lastName }" /></td>
+								<td align="center">
+									<c:forEach var="role" items="${user.user.roles }">
+										<c:choose>
+											<c:when test="${role.id == 1 }">
+												<span color="text-success"><s:message code="word.admin"/></span>
+											</c:when>
+											<c:when test="${role.id == 3 }">
+												<span class="text-warning"><s:message code="word.controller"/></span>
+											</c:when>
+											<c:otherwise>
+												<span class="text-info"><s:message code="word.user"/></span>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								</td>
+								<td ><c:out value="${user.hour_from }" /></td>
+								<td ><c:out value="${user.hour_to }" /></td>
 							</tr>
 						</c:forEach>
 						</tbody>

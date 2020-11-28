@@ -8,6 +8,7 @@ import java.util.List;
 public interface ScheduleService {
 
     List<Schedule> findAll();
+    List<Schedule> findAll(Schedule schedule);
 
     Schedule findScheduleById(int id);
 

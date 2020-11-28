@@ -55,18 +55,18 @@
 						</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="u" items="${userList }">
+							<c:forEach var="user" items="${userList }">
 								<c:set var="licznik" value="${licznik+1}"/>
 								<tr onmouseover="changeTrBg(this)" onmouseout="defaultTrBg(this)">
 									<td align="right"><c:out value="${licznik }"/></td>
-									<td align="right"><c:out value="${u.id }" /></td>
-									<td align="left"><c:out value="${u.name }" /></td>
-									<td align="left"><c:out value="${u.lastName }" /></td>
-									<td align="center"><c:out value="${u.email }" /></td>
-									<td align="center"><c:out value="${u.mark }" /></td>
+									<td align="right"><c:out value="${user.id }" /></td>
+									<td align="left"><c:out value="${user.name }" /></td>
+									<td align="left"><c:out value="${user.lastName }" /></td>
+									<td align="center"><c:out value="${user.email }" /></td>
+									<td align="center"><c:out value="${user.mark }" /></td>
 									<td align="center">
 										<c:choose>
-											<c:when test="${u.active == 1 }">
+											<c:when test="${user.active == 1 }">
 												<font color="green"><s:message code="word.tak"/></font>
 											</c:when>
 											<c:otherwise>
@@ -76,7 +76,7 @@
 									</td>
 									<td align="center">
 										<c:choose>
-											<c:when test="${u.is_fired == false }">
+											<c:when test="${user.is_fired == false }">
 												<font color="green"><s:message code="word.zatrudniony"/></font>
 											</c:when>
 											<c:otherwise>
@@ -85,20 +85,21 @@
 										</c:choose>
 									</td>
 									<td align="center">
-										<c:choose>
-											<c:when test="${u.nrRoli == 1 }">
-												<span color="text-success"><s:message code="word.admin"/></span>
-											</c:when>
-											<c:when test="${u.nrRoli == 3 }">
-												<span class="text-primary"><s:message code="word.controller"/></span>
-											</c:when>
-											<c:otherwise>
-												<span class="text-info"><s:message code="word.user"/></span>
-											</c:otherwise>
-										</c:choose>
-									</td>
+										<c:forEach var="role" items="${user.roles }">
+											<c:choose>
+												<c:when test="${role.id == 1 }">
+													<span color="text-success"><s:message code="word.admin"/></span>
+												</c:when>
+												<c:when test="${role.id == 3 }">
+													<span class="text-warning"><s:message code="word.controller"/></span>
+												</c:when>
+												<c:otherwise>
+													<span class="text-info"><s:message code="word.user"/></span>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
 									<td ><input type="button" value="<s:message code="button.edit"/>"
-										onclick="window.location.href='${pageContext.request.contextPath}edit/${u.id }'"/></td>
+										onclick="window.location.href='${pageContext.request.contextPath}edit/${user.id }'"/></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -108,19 +109,19 @@
 								<s:message code="info.page"/> ${currentPage} <s:message code="info.from"/> ${totalPages}
 							</td>
 							<td colspan="7" align="right">
-				
+
 								<c:if test="${currentPage > 1}">
 									<input type="button"
 										   onclick="window.location.href='${pageContext.request.contextPath}/admin/users/${currentPage - 1}'"
 										   value="<s:message code="link.poprzedni"/>"/>&nbsp;&nbsp;
 								</c:if>
-				
+
 								<c:if test="${currentPage < totalPages}">
 									<input type="button"
 										   onclick="window.location.href='${pageContext.request.contextPath}/admin/users/${currentPage + 1}'"
 										   value="<s:message code="link.nastepny"/>"/>
 								</c:if>
-				
+
 							</td>
 						</tr>
 						</tbody>

@@ -19,18 +19,18 @@ public class Schedule {
     private PlacesService placesService;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_schedule")
-    private int id_schedule;
+    private Integer id_schedule;
 
     @Column(name = "id_user")
-    private int id_user;
+    private Integer id_user;
 
     @Column(name = "id_role")
-    private int id_role;
+    private Integer id_role;
 
     @Column(name = "id_places")
-    private int id_places;
+    private Integer id_places;
 
     @Column(name = "hour_from")
     private Date hour_from;
@@ -50,20 +50,48 @@ public class Schedule {
     @Transient
     private String hour_to_string;
 
+    @Transient
+    private String onlyDate_from_string;
 
-    public int getId_schedule() {
+    public String getOnlyDate_from_string() {
+        return onlyDate_from_string;
+    }
+
+    public void setOnlyDate_from_string(String onlyDate_from_string) {
+        this.onlyDate_from_string = onlyDate_from_string;
+    }
+
+    public Integer getId_schedule() {
         return id_schedule;
     }
 
-    public void setId_schedule(int id_schedules) {
-        this.id_schedule = id_schedules;
+    public void setId_schedule(Integer id_schedule) {
+        this.id_schedule = id_schedule;
     }
 
-    public int getId_user() {
+    public Integer getId_user() {
         return id_user;
     }
 
-    public void setId_user(int id_user) { this.id_user = id_user; }
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
+
+    public Integer getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(Integer id_role) {
+        this.id_role = id_role;
+    }
+
+    public Integer getId_places() {
+        return id_places;
+    }
+
+    public void setId_places(Integer id_places) {
+        this.id_places = id_places;
+    }
 
     public Date getHour_from() {
         return hour_from;
@@ -105,22 +133,6 @@ public class Schedule {
         this.placesService = placesService;
     }
 
-    public int getId_role() {
-        return id_role;
-    }
-
-    public void setId_role(int id_role) {
-        this.id_role = id_role;
-    }
-
-    public int getId_places() {
-        return id_places;
-    }
-
-    public void setId_places(int id_places) {
-        this.id_places = id_places;
-    }
-
     public Places getPlaces() {
         return places;
     }
@@ -137,9 +149,15 @@ public class Schedule {
         this.user = user;
     }
 
+    private void divdedDateToString() {
+        setHour_to_string(getOnlyDate_from_string() + " " + getHour_to_string() + ":00");
+        setHour_from_string(getOnlyDate_from_string() + " " + getHour_from_string() + ":00");
+
+    }
+
     public void stringToDate() throws ParseException {
-        setHour_to(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(hour_to_string));
-        setHour_from(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(hour_from_string));
+        setHour_to(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(getOnlyDate_from_string() + " " + getHour_to_string() + ":00"));
+        setHour_from(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(getOnlyDate_from_string() + " " + getHour_from_string() + ":00"));
     }
 
     public void dateToString() throws ParseException {

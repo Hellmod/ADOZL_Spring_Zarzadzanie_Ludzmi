@@ -1,6 +1,8 @@
 package pl.rafalmiskiewicz.ADOZL.schedule;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.rafalmiskiewicz.ADOZL.places.Places;
@@ -12,6 +14,7 @@ import java.util.List;
 @Transactional
 public class ScheduleServiceImpl implements ScheduleService {
 
+    @Qualifier("scheduleRepository")
     @Autowired
     private ScheduleRepository scheduleRepository;
 
@@ -20,6 +23,12 @@ public class ScheduleServiceImpl implements ScheduleService {
     public List<Schedule> findAll() {
         List<Schedule> userList = scheduleRepository.findAll();
         return userList;
+    }
+
+    @Override
+    public List<Schedule> findAll(Schedule schedule) {
+        return scheduleRepository.findAll(Example.of(schedule));
+
     }
 
     @Override
@@ -34,7 +43,6 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public void saveSchedule(Schedule schedule) {
-
         scheduleRepository.save(schedule);
     }
 

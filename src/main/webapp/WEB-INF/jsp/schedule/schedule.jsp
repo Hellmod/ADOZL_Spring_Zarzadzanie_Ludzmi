@@ -51,15 +51,15 @@
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="u" items="${scheduleList }">
-							<sf:form id="${u.id_schedule}" action="schedule/edit" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${u.id_schedule }" path="id_schedule"/>
+						<c:forEach var="user" items="${scheduleList }">
+							<sf:form id="${user.id_schedule}" action="schedule/edit" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
+								<sf:hidden value="${user.id_schedule }" path="id_schedule"/>
 								<tr>
 
-									<td ><c:out value="${u.hour_from }" /></td>
-									<td ><c:out value="${u.hour_to }" /></td>
-									<td ><c:out value="${u.places.description }" /></td>
-									<td ><a href="<c:out value="${u.places.address_google }"/>" target="_blank"><s:message code="places.lokalizacja"/></a></td>
+									<td ><c:out value="${user.hour_from }" /></td>
+									<td ><c:out value="${user.hour_to }" /></td>
+									<td ><c:out value="${user.places.description }" /></td>
+									<td ><a href="<c:out value="${user.places.address_google }"/>" target="_blank"><s:message code="places.lokalizacja"/></a></td>
 								</tr>
 							</sf:form>
 						</c:forEach>

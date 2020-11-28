@@ -86,7 +86,7 @@ public class HoursPageController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        hour.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
+        hour.setUser(userService.findUserByEmail(UserUtilities.getLoggedUser()));
 
         new HourAddValidator().validate(hour, result);
 
