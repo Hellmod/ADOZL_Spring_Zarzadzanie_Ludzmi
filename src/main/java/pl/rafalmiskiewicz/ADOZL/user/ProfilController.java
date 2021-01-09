@@ -6,6 +6,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 import pl.rafalmiskiewicz.ADOZL.validators.ChangePasswordValidator;
@@ -22,6 +23,12 @@ public class ProfilController {
     MessageSource messageSource;
     @Autowired
     private UserService userService;
+
+    @GET
+    @PostMapping("/api/dupa")
+    public String ass() {
+        return "dupa";
+    }
 
     @GET
     @RequestMapping(value = "/profil")
