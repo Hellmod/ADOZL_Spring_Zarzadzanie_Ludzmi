@@ -16,7 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.sql.DataSource;
 
 @Configuration
-@Order(1)
+@Order(2)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -40,7 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSec) throws Exception {
         httpSec
                 .authorizeRequests()
-                .antMatchers("/hello").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()

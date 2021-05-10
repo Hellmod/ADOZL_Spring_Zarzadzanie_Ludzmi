@@ -20,7 +20,7 @@ import pl.rafalmiskiewicz.ADOZL.jwt.filters.JwtRequestFilter;
 import javax.sql.DataSource;
 
 @Configuration
-@Order(2)
+@Order(1)
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService myUserDetailsService;
@@ -59,13 +59,15 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
+        httpSecurity.antMatcher("/api/**")
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate").permitAll()
-                .antMatchers("/login").permitAll()
+                .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/login").permitAll()
 
-                .anyRequest().authenticated().and()
-                .exceptionHandling().and().sessionManagement()
+                .anyRequest().authenticated()
+                .and().exceptionHandling()
+                .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

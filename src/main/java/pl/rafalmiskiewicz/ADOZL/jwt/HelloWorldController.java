@@ -1,5 +1,6 @@
 package pl.rafalmiskiewicz.ADOZL.jwt;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,9 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import pl.rafalmiskiewicz.ADOZL.hours.Hour;
+import pl.rafalmiskiewicz.ADOZL.hours.HourService;
 import pl.rafalmiskiewicz.ADOZL.jwt.models.AuthenticationRequest;
 import pl.rafalmiskiewicz.ADOZL.jwt.models.AuthenticationResponse;
 import pl.rafalmiskiewicz.ADOZL.jwt.util.JwtUtil;
+import pl.rafalmiskiewicz.ADOZL.user.UserService;
+import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
+
+import java.util.List;
 
 @RestController
 class HelloWorldController {
@@ -26,12 +33,12 @@ class HelloWorldController {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
-    @RequestMapping({ "/hello" })
+    @RequestMapping({ "/api/hello" })
     public String firstPage() {
         return "Hello World";
     }
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
         try {
