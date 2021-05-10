@@ -1,7 +1,6 @@
 package pl.rafalmiskiewicz.ADOZL.mainController;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.ws.rs.GET;
@@ -14,4 +13,5 @@ public class LoginPageController {
     public String showLoginPage() {
         return "login";
     }
+
 }
