@@ -30,13 +30,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78d2a604-0b91-47c1-ab10-a1e8b9338b76" name="Default Changelist" comment="maven git dataSources">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/HelloWorldController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/HelloWorldController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/MyUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourApi.java" afterDir="false" />
     </list>
     <list id="1d415526-7f46-482c-aa5a-98b1e84783f9" name="Revert &quot;Finall commiit&quot;" comment="Revert &quot;Finall commiit&quot;&#10;&#10;This reverts commit 38b18fde" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,13 +105,13 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Budzet_Domowy" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4915254" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -282,7 +277,14 @@
       <workItem from="1606519576228" duration="4932000" />
       <workItem from="1606563977236" duration="494000" />
       <workItem from="1620675047938" duration="5629000" />
-      <workItem from="1620685179911" duration="1538000" />
+      <workItem from="1620685179911" duration="2540000" />
+      <workItem from="1621370124229" duration="595000" />
+      <workItem from="1621884191064" duration="1181000" />
+      <workItem from="1622298498558" duration="826000" />
+      <workItem from="1623176624589" duration="1650000" />
+      <workItem from="1628026725511" duration="2014000" />
+      <workItem from="1628710186523" duration="1859000" />
+      <workItem from="1629748899875" duration="736000" />
     </task>
     <task id="LOCAL-00001" summary="maven git dataSources">
       <created>1604760731311</created>
@@ -298,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620683942018</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="poprawki jwt">
+      <created>1620686881818</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620686881818</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +340,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maven git dataSources" />
     <MESSAGE value="rest api jwt" />
-    <option name="LAST_COMMIT_MESSAGE" value="rest api jwt" />
+    <MESSAGE value="poprawki jwt" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawki jwt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -351,11 +361,6 @@
           <line>74</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HourApi.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -363,6 +368,10 @@
         <watch expression="UserUtilities.getLoggedUser()" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ADOZL$AdozlApplication.ic" NAME="AdozlApplication Coverage Results" MODIFIED="1579137329781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
