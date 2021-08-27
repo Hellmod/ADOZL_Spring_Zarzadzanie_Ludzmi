@@ -8,6 +8,8 @@ import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.utilities.AppdemoUtils;
 
+import java.text.ParseException;
+
 public class HourAddValidator implements Validator {
 
     @Override
@@ -28,11 +30,18 @@ public class HourAddValidator implements Validator {
         if(h.getOnlyHour_to_string()==null||h.getOnlyHour_to_string().isEmpty())
             errors.rejectValue("hour_to", "error.hour_from.empty");
 
-		if (h.getHour_from()!=null) {
-			boolean isMatch = AppdemoUtils.checkDate(AdozlConstants.HOUR_PATTERN, h.getHour_from());
-			if(!isMatch) {
-				errors.rejectValue("hour_from", "hour.error.dateNotMatch");
-			}
+        try {
+            h.divdedDateToString();
+            h.stringToDate();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+//		if (h.getOnlyHour_from_string()!=null && h.getOnlyHour_to_string()!=null) {
+		if (h.getHour_from()!=null && h.getHour_to()!=null) {
+
+            if(h.getHour_from().after(h.getHour_to()))
+                errors.rejectValue("hour_to", "error.hour.period");
 		}
 
     }
