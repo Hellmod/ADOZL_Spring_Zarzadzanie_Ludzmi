@@ -39,7 +39,7 @@ public class HoursPageController {
 
     @POST
     @RequestMapping(value = "/hour")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     public String openHourNewMainPage(Model model) {
         List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         model.addAttribute("hourList", hourList);
@@ -49,11 +49,11 @@ public class HoursPageController {
 
     @GET
     @RequestMapping(value = "/hour/edit")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     public String getHourIdToEditNew(Hour hour, Model model) {
 
         System.out.println(hour);
-        hour=hourService.findHourById(hour.getId_hours());
+        hour = hourService.findHourById(hour.getId_hours());
         try {
             hour.dateToString();
             hour.generateOnlyString();
@@ -67,8 +67,8 @@ public class HoursPageController {
 
     @GET
     @RequestMapping(value = "/hour/addhour")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String addHour( Model model) {
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
+    public String addHour(Model model) {
 
         Hour h = new Hour();
         model.addAttribute("hour", h);
@@ -78,10 +78,9 @@ public class HoursPageController {
 
     @POST
     @RequestMapping(value = "/hour/inserthour")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String registerHour(Hour hour,  BindingResult result, Model model, Locale locale) {
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
+    public String registerHour(Hour hour, BindingResult result, Model model, Locale locale) {
         String returnPage = null;
-
 
         new HourAddValidator().validate(hour, result);
 
@@ -96,11 +95,7 @@ public class HoursPageController {
                 e.printStackTrace();
             }
             hour.setUser(userService.findUserByEmail(UserUtilities.getLoggedUser()));
-
-            //hourRepository.save(hour);
-            //hourService.saveHour(hour);
             hourService.saveHourNew(hour);
-            //hourService.insertHourString(hour);
             model.addAttribute("message", messageSource.getMessage("hour.add.success", null, locale));
             model.addAttribute("hour", new Hour());
             returnPage = "hour/addhour";
@@ -114,30 +109,23 @@ public class HoursPageController {
 
     @POST
     @RequestMapping(value = "/hour/edit/updatehour")
-    @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
-    public String editHour(Hour hour,  BindingResult result, Model model, Locale locale) {
+    @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
+    public String editHour(Hour hour, BindingResult result, Model model, Locale locale) {
 
         String returnPage = null;
-
-        try {
-            hour.divdedDateToString();
-            hour.stringToDate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-//        try {
-//            hour.stringToDate();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
-        //hour.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
             returnPage = "hour/edithour";
         } else {
+
+            try {
+                hour.divdedDateToString();
+                hour.stringToDate();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             hourService.updateHour(hour);
 
             model.addAttribute("message", messageSource.getMessage("hour.edit.success", null, locale));
@@ -149,7 +137,6 @@ public class HoursPageController {
 
 
     }
-
 
 
 }

@@ -45,10 +45,15 @@
 
 						<label for="onlyDate_from_string"><s:message code="hour.date"/></label>
 						<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" value="${hour.onlyDate_from_string }">
+						<small class="form-text text-danger"><sf:errors path="onlyDate_from_string"/></small>
+
 						<label for="onlyHour_from_string"><s:message code="hour.hour_from"/></label>
-						<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" max="18:00" value="${hour.onlyHour_from_string } ">
+						<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" value="${hour.onlyHour_from_string }">
+						<small class="form-text text-danger"><sf:errors path="hour_from"/></small>
+
 						<label for="onlyHour_to_string"><s:message code="hour.hour_to"/></label>
 						<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" value="${hour.onlyHour_to_string }">
+						<small class="form-text text-danger"><sf:errors path="hour_to"/></small>
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>
