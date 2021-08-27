@@ -42,17 +42,13 @@
 				<div class="col-sm-6 offset-sm-3">
 					<sf:form id="hourForm" action="edit/updatehour" modelAttribute="hour" enctype="multipart/form-data" method="POST">
 						<sf:hidden path="id_hours"/>
-						<div class="form-group">
-							<label for="hour_from_string"><s:message code="hour.hour_from"/></label>
-							<sf:input path="hour_from_string" class="form-control" />
-							<small id="hour_from_stringHelp" class="form-text text-danger"><sf:errors path="hour_from_string"/></small>
-						</div>
 
-						<div class="form-group">
-							<label for="hour_to_string"><s:message code="hour.hour_to"/></label>
-							<sf:input path="hour_to_string" class="form-control" />
-							<small class="form-text text-danger"><sf:errors path="hour_to_string"/></small>
-						</div>
+						<label for="onlyDate_from_string"><s:message code="hour.date"/></label>
+						<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" value="${hour.onlyDate_from_string }">
+						<label for="onlyHour_from_string"><s:message code="hour.hour_from"/></label>
+						<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" max="18:00" value="${hour.onlyHour_from_string } ">
+						<label for="onlyHour_to_string"><s:message code="hour.hour_to"/></label>
+						<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" value="${hour.onlyHour_to_string }">
 
 						<button type="submit" class="btn btn-primary"><s:message code="button.save" /></button>
 						<button type="reset" class="btn btn-primary" onclick="window.location.href='${pageContext.request.contextPath}/'"><s:message code="button.cancel" /></button>

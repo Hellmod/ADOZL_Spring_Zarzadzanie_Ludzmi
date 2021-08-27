@@ -56,6 +56,7 @@ public class HoursPageController {
         hour=hourService.findHourById(hour.getId_hours());
         try {
             hour.dateToString();
+            hour.generateOnlyString();
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -80,19 +81,21 @@ public class HoursPageController {
     @Secured(value = {"ROLE_ADMIN","ROLE_USER"})
     public String registerHour(Hour hour,  BindingResult result, Model model, Locale locale) {
         String returnPage = null;
-        try {
-            hour.divdedDateToString();
-            hour.stringToDate();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        hour.setUser(userService.findUserByEmail(UserUtilities.getLoggedUser()));
+
 
         new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
             returnPage = "hour/addhour";
         } else {
+            try {
+                hour.divdedDateToString();
+                hour.stringToDate();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            hour.setUser(userService.findUserByEmail(UserUtilities.getLoggedUser()));
+
             //hourRepository.save(hour);
             //hourService.saveHour(hour);
             hourService.saveHourNew(hour);
@@ -114,11 +117,19 @@ public class HoursPageController {
     public String editHour(Hour hour,  BindingResult result, Model model, Locale locale) {
 
         String returnPage = null;
+
         try {
+            hour.divdedDateToString();
             hour.stringToDate();
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+//        try {
+//            hour.stringToDate();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         //hour.setId_user(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         new HourAddValidator().validate(hour, result);

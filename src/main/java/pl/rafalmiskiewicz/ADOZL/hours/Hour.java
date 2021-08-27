@@ -162,4 +162,22 @@ public class Hour {
         setHour_from_string(getHour_from().toString());
         setHour_to_string(getHour_to().toString());
     }
+
+    public void generateOnlyString(){
+        generate_onlyDate_to_string();
+        generate_onlyHour_to_string();
+        generate_onlyHour_from_string();
+    }
+
+    public void generate_onlyDate_to_string(){
+        setOnlyDate_from_string(new SimpleDateFormat("yyyy-MM-dd").format(hour_from));
+    }
+
+    public void generate_onlyHour_to_string(){
+        setOnlyHour_to_string(new SimpleDateFormat("HH:mm").format(hour_to));
+    }
+
+    public void generate_onlyHour_from_string(){
+        setOnlyHour_from_string(new SimpleDateFormat("HH:mm").format(hour_from));
+    }
 }

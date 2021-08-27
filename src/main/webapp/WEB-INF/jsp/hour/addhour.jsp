@@ -44,13 +44,17 @@
 
 						<div class="form-group">
 
-
+							<label for="onlyDate_from_string"><s:message code="hour.date"/></label>
 							<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" >
-							<label for="hour_from_string"><s:message code="hour.hour_from"/></label>
-							<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" >
-							<label for="hour_to_string"><s:message code="hour.hour_to"/></label>
-							<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" >
+							<small class="form-text text-danger"><sf:errors path="onlyDate_from_string"/></small>
 
+							<label for="onlyHour_from_string"><s:message code="hour.hour_from"/></label>
+							<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" >
+							<small class="form-text text-danger"><sf:errors path="hour_from"/></small>
+
+							<label for="onlyHour_to_string"><s:message code="hour.hour_to"/></label>
+							<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" >
+							<small class="form-text text-danger"><sf:errors path="hour_to"/></small>
 						</div>
 
 

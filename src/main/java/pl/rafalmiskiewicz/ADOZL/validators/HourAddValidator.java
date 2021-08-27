@@ -19,11 +19,16 @@ public class HourAddValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Hour h = (Hour) obj;
 
-        ValidationUtils.rejectIfEmpty(errors, "hour_from", "error.userName.empty");
-        ValidationUtils.rejectIfEmpty(errors, "hour_to", "error.userLastName.empty");
+        if(h.getOnlyDate_from_string()==null||h.getOnlyDate_from_string().isEmpty())
+            errors.rejectValue("onlyDate_from_string", "error.date.empty");
 
+        if(h.getOnlyHour_from_string()==null||h.getOnlyHour_from_string().isEmpty())
+            errors.rejectValue("hour_from", "error.hour_to.empty");
 
-		if (!h.getHour_from().equals(null)) {
+        if(h.getOnlyHour_to_string()==null||h.getOnlyHour_to_string().isEmpty())
+            errors.rejectValue("hour_to", "error.hour_from.empty");
+
+		if (h.getHour_from()!=null) {
 			boolean isMatch = AppdemoUtils.checkDate(AdozlConstants.HOUR_PATTERN, h.getHour_from());
 			if(!isMatch) {
 				errors.rejectValue("hour_from", "hour.error.dateNotMatch");
