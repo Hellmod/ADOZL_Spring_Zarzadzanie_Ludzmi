@@ -3,6 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,15 +46,15 @@
 						<div class="form-group">
 
 							<label for="onlyDate_from_string"><s:message code="hour.date"/></label>
-							<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" >
+							<input name="onlyDate_from_string" type="date" class="form-control" id="onlyDate_from_string" value="${hour.onlyDate_from_string }" >
 							<small class="form-text text-danger"><sf:errors path="onlyDate_from_string"/></small>
 
 							<label for="onlyHour_from_string"><s:message code="hour.hour_from"/></label>
-							<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" >
+							<input name="onlyHour_from_string" type="time" class="form-control" id="onlyHour_from_string" value="${hour.onlyHour_from_string }" >
 							<small class="form-text text-danger"><sf:errors path="hour_from"/></small>
 
 							<label for="onlyHour_to_string"><s:message code="hour.hour_to"/></label>
-							<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" >
+							<input name="onlyHour_to_string" type="time" class="form-control" id="onlyHour_to_string" value="${hour.onlyHour_to_string }" >
 							<small class="form-text text-danger"><sf:errors path="hour_to"/></small>
 						</div>
 

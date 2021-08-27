@@ -86,6 +86,7 @@ public class HoursPageController {
         new HourAddValidator().validate(hour, result);
 
         if (result.hasErrors()) {
+            model.addAttribute("hour", hour);
             returnPage = "hour/addhour";
         } else {
             try {
