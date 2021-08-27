@@ -290,7 +290,7 @@
       <workItem from="1628026725511" duration="2014000" />
       <workItem from="1628710186523" duration="1859000" />
       <workItem from="1629748899875" duration="4019000" />
-      <workItem from="1630070595902" duration="2491000" />
+      <workItem from="1630070595902" duration="2794000" />
     </task>
     <task id="LOCAL-00001" summary="maven git dataSources">
       <created>1604760731311</created>
@@ -320,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629750463931</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="null add hour detection, edit hour gui">
+      <created>1630073410543</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1630073410543</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +362,8 @@
     <MESSAGE value="rest api jwt" />
     <MESSAGE value="poprawki jwt" />
     <MESSAGE value="schedules" />
-    <option name="LAST_COMMIT_MESSAGE" value="schedules" />
+    <MESSAGE value="null add hour detection, edit hour gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="null add hour detection, edit hour gui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
