@@ -42,6 +42,9 @@ public class HoursPageController {
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER"})
     public String openHourNewMainPage(Model model) {
         List<Hour> hourList = hourService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
+        for (Hour hour :hourList) {
+            hour.generateOnlyString();
+        }
         model.addAttribute("hourList", hourList);
         model.addAttribute(new Hour());
         return "hour/hour";

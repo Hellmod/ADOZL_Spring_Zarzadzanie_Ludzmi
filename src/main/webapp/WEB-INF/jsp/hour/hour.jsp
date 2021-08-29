@@ -44,18 +44,20 @@
 						<thead>
 						<tr>
 
+							<td ><s:message code="hour.date"/></td>
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach var="user" items="${hourList }">
-							<sf:form id="${user.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
-								<sf:hidden value="${user.id_hours }" path="id_hours"/>
+						<c:forEach var="hour" items="${hourList }">
+							<sf:form id="${hour.id_hours}" action="hour/edit" modelAttribute="hour" enctype="multipart/form-data" method="POST">
+								<sf:hidden value="${hour.id_hours }" path="id_hours"/>
 								<tr>
 
-									<td ><c:out value="${user.hour_from }" /></td>
-									<td ><c:out value="${user.hour_to }" /></td>
+									<td ><c:out value="${hour.onlyDate_from_string }" /></td>
+									<td ><c:out value="${hour.onlyHour_from_string }" /></td>
+									<td ><c:out value="${hour.onlyHour_to_string }" /></td>
 									<td ><input type="submit" value="<s:message code="button.edit"/>" /></td>
 								</tr>
 							</sf:form>

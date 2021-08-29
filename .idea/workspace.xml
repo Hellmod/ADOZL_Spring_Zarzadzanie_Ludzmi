@@ -30,8 +30,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78d2a604-0b91-47c1-ab10-a1e8b9338b76" name="Default Changelist" comment="maven git dataSources">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HoursPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HoursPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/hour/edithour.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/hour/edithour.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="1d415526-7f46-482c-aa5a-98b1e84783f9" name="Revert &quot;Finall commiit&quot;" comment="Revert &quot;Finall commiit&quot;&#10;&#10;This reverts commit 38b18fde" />
     <option name="SHOW_DIALOG" value="false" />
@@ -395,11 +394,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
           <line>74</line>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/hours/HoursPageController.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
