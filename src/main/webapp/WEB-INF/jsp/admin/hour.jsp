@@ -46,6 +46,7 @@
 
 							<td ><s:message code="register.name"/></td>
 							<td ><s:message code="register.lastName"/></td>
+							<td ><s:message code="hour.date"/></td>
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 						</tr>
@@ -55,8 +56,9 @@
 								<tr>
 									<td ><c:out value="${user.user.name }" /></td>
 									<td ><c:out value="${user.user.lastName }" /></td>
-									<td ><c:out value="${user.hour_from }" /></td>
-									<td ><c:out value="${user.hour_to }" /></td>
+									<td ><c:out value="${user.onlyDate_from_string }" /></td>
+									<td ><c:out value="${user.onlyHour_from_string }" /></td>
+									<td ><c:out value="${user.onlyHour_to_string }" /></td>
 								</tr>
 						</c:forEach>
 						</tbody>

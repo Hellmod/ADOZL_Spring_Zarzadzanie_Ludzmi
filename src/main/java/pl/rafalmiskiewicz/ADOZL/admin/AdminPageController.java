@@ -115,6 +115,7 @@ public class AdminPageController {
         List<Hour> hourList = hourService.findAll();
         for (Hour h:hourList) {
             matchUsers(h);
+            h.generateOnlyString();
         }
         model.addAttribute("hourList", hourList);
         model.addAttribute(new Hour());
@@ -129,6 +130,7 @@ public class AdminPageController {
         for (Schedule s:scheduleList) {
             matchPlaces(s);
             matchUsers(s);
+            s.generateOnlyString();
         }
         model.addAttribute("scheduleList", scheduleList);
         model.addAttribute(new Schedule());
