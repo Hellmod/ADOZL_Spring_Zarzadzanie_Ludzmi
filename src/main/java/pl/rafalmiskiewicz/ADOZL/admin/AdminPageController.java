@@ -1,10 +1,14 @@
 package pl.rafalmiskiewicz.ADOZL.admin;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +20,6 @@ import pl.rafalmiskiewicz.ADOZL.schedule.Schedule;
 import pl.rafalmiskiewicz.ADOZL.schedule.ScheduleService;
 import pl.rafalmiskiewicz.ADOZL.user.User;
 import pl.rafalmiskiewicz.ADOZL.user.UserService;
-import pl.rafalmiskiewicz.ADOZL.utilities.UserUtilities;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -48,6 +51,12 @@ public class AdminPageController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private FirebaseMessaging firebaseMessaging2;
+
+//    private ApplicationContext test = new AnnotationConfigApplicationContext(FirbaseConfig.class);
+//
+//    private FirebaseMessaging firebaseMessaging2=test.getBean(FirebaseMessaging.class);
 
     @GET
     @RequestMapping(value = "/admin/users/{page}")
@@ -126,6 +135,16 @@ public class AdminPageController {
     @RequestMapping(value = "/admin/schedule")
     @Secured(value = {"ROLE_ADMIN","ROLE_USER","ROLE_CONTRROLER"})
     public String openScheduleNewMainPage(Model model) {
+        try {
+            FirebaseMessagingService firebaseMessagingService= new FirebaseMessagingService(firebaseMessaging2);
+            firebaseMessagingService.sendNotification(new Note(),"dEZjNOIWTA2hGySpthTCOx:APA91bHdwiHdNJkakF-oZeiKnJhEzz8pv65OcBw1Y7-utLL7HwDbLahFPtxRyMmBXJ7_xAII57jaV9_iBBfaB-P4U6oeAyI8BUB7hpq3c2rNKrzFEkS87-T73Xn95Hv5ruUW1B37-XCn");
+
+        }catch (Throwable e){
+
+            System.out.println(e);
+        }
+
+
         List<Schedule> scheduleList = scheduleService.findAll();
         for (Schedule s:scheduleList) {
             matchPlaces(s);
