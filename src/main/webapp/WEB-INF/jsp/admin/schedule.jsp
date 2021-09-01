@@ -40,7 +40,7 @@
 
 				<div class="col-sm-12 ">
 
-					<table class="table table-striped table-dark">
+					<table class="table table-striped table-light">
 						<thead>
 						<tr>
 							<td ><s:message code="register.name"/></td>

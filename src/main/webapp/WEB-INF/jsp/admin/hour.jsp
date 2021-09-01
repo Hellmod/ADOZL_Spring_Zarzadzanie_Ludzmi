@@ -40,7 +40,7 @@
 
 				<div class="col-sm-10 offset-sm-1">
 
-					<table class="table table-striped table-dark">
+					<table class="table table-striped table-light">
 						<thead>
 						<tr>
 

@@ -86,7 +86,7 @@
 <%--dodaj margines pomiędzy tymi div--%>
 				<div class="col-sm-10 offset-sm-1">
 
-					<table class="table table-striped table-dark">
+					<table class="table table-striped table-light">
 						<thead>
 						<tr>
 							<td ><s:message code="hour.id_user"/></td>
