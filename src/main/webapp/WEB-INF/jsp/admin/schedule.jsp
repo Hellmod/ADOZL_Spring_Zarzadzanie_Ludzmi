@@ -80,7 +80,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <script>
-	document.getElementById("allschedule").classList.add("active");
+	document.getElementById("alladmin").classList.add("active");
 </script>
 </body>
 </html>
