@@ -30,16 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78d2a604-0b91-47c1-ab10-a1e8b9338b76" name="Default Changelist" comment="maven git dataSources">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/admin/FirbaseConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/admin/FirebaseMessagingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/admin/Note.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/firebase-service-account.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/admin/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/admin/AdminPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/jwt/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/addschedule.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/addschedule.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/schedule.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/schedule/schedule.jsp" afterDir="false" />
     </list>
     <list id="1d415526-7f46-482c-aa5a-98b1e84783f9" name="Revert &quot;Finall commiit&quot;" comment="Revert &quot;Finall commiit&quot;&#10;&#10;This reverts commit 38b18fde" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +75,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="light" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -394,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630265158145</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="light">
+      <created>1630539813465</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1630539813465</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +435,8 @@
     <MESSAGE value="error.hour.period in add hour" />
     <MESSAGE value="show hour no milliseconds" />
     <MESSAGE value="show hour and schedule in admin with no milliseconds" />
-    <option name="LAST_COMMIT_MESSAGE" value="show hour and schedule in admin with no milliseconds" />
+    <MESSAGE value="light" />
+    <option name="LAST_COMMIT_MESSAGE" value="light" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,8 +448,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="58" />
+          <line>56</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/rafalmiskiewicz/ADOZL/schedule/SchedulePageController.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

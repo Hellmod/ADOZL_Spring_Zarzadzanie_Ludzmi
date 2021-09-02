@@ -43,7 +43,7 @@
 					<table class="table table-striped table-dark">
 						<thead>
 						<tr>
-
+							<td ><s:message code="hour.date"/></td>
 							<td ><s:message code="hour.hour_from"/></td>
 							<td ><s:message code="hour.hour_to"/></td>
 							<td ><s:message code="places.description"/></td>
@@ -55,9 +55,9 @@
 							<sf:form id="${user.id_schedule}" action="schedule/edit" modelAttribute="schedule" enctype="multipart/form-data" method="POST">
 								<sf:hidden value="${user.id_schedule }" path="id_schedule"/>
 								<tr>
-
-									<td ><c:out value="${user.hour_from }" /></td>
-									<td ><c:out value="${user.hour_to }" /></td>
+									<td ><c:out value="${user.onlyDate_from_string }" /></td>
+									<td ><c:out value="${user.hour_from_string }" /></td>
+									<td ><c:out value="${user.hour_to_string }" /></td>
 									<td ><c:out value="${user.places.description }" /></td>
 									<td ><a href="<c:out value="${user.places.address_google }"/>" target="_blank"><s:message code="places.lokalizacja"/></a></td>
 								</tr>

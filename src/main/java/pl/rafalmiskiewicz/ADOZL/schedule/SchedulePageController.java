@@ -52,6 +52,7 @@ public class SchedulePageController {
         List<Schedule> scheduleList = scheduleService.findAllByUserId(userService.findUserByEmail(UserUtilities.getLoggedUser()).getId());
         for (Schedule s : scheduleList) {
             matchPlaces(s);
+            s.generateOnlyString();
         }
         model.addAttribute("scheduleList", scheduleList);
         model.addAttribute(new Schedule());
@@ -138,6 +139,7 @@ public class SchedulePageController {
             Map<Integer, String> userMap = new HashMap<Integer, String>();
             for (Hour h : hourList) {
                 userMap.put(h.getUser().getId(), h.getUser().getName() + " " + h.getUser().getLastName());
+                h.generateOnlyString();
             }
             userMap.put(null, "");
 
