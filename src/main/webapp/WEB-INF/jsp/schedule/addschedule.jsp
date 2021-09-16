@@ -32,7 +32,7 @@
 		<div class="container">
 
 			<header>
-				<h1><s:message code="menu.hourAdd" /></h1>
+				<h1><s:message code="menu.scheduleAdd" /></h1>
 				<p><c:out value="${message }" /></p>
 			</header>
 
@@ -142,7 +142,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 
 <script>
-	document.getElementById("allhour").classList.add("active");
+	document.getElementById("schedule").classList.add("active");
 </script>
 </body>
 </html>

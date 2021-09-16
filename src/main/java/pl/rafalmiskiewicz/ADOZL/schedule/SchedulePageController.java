@@ -1,5 +1,6 @@
 package pl.rafalmiskiewicz.ADOZL.schedule;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.context.MessageSource;
@@ -12,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.rafalmiskiewicz.ADOZL.admin.FirebaseMessagingService;
+import pl.rafalmiskiewicz.ADOZL.admin.Note;
 import pl.rafalmiskiewicz.ADOZL.hours.Hour;
 import pl.rafalmiskiewicz.ADOZL.hours.HourService;
 import pl.rafalmiskiewicz.ADOZL.places.PlacesService;
@@ -45,6 +48,9 @@ public class SchedulePageController {
     @Autowired
     private PlacesService placesService;
 
+    @Autowired
+    private FirebaseMessaging firebaseMessaging2;
+
     @POST
     @RequestMapping(value = "/schedule")
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER", "ROLE_CONTRROLER"})
@@ -73,6 +79,14 @@ public class SchedulePageController {
             }
             if (schedule.getId_user() != null && schedule.getId_role() != null && schedule.getId_places() != null && schedule.getHour_from() != null && schedule.getHour_to() != null) {
                 if (!result.hasErrors()) {
+                    try {
+                        FirebaseMessagingService firebaseMessagingService= new FirebaseMessagingService(firebaseMessaging2);
+                        firebaseMessagingService.sendNotification(new Note(),"cK2u-IZ6TlGy-hme-o67mI:APA91bGsjGQHOYWU4o_uY9yQxjM2ywjQR5mRoEN3qgujex28biAg0bTZ2QwM3i4TqHMhscx9a1k4AriZ50ZrIE88R0vuJMktKojILTyQHlhKGqKaG1-yOiLr5ifMsi5rTdUJbMDxo4by");
+
+                    }catch (Throwable e){
+
+                        System.out.println(e);
+                    }
                     scheduleService.saveSchedule(schedule);
                     model.addAttribute("message", messageSource.getMessage("schedule.add.success", null, locale));
                     model.addAttribute("schedule", new Schedule());
